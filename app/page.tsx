@@ -38,7 +38,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a className="btn-primary" href="#cta">
-                Start free trial
+                Get started free
               </a>
               <Link className="btn-secondary" href="/micro-lessons">
                 Start learning
