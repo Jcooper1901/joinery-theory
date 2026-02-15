@@ -27,7 +27,7 @@ export default function Home() {
         <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col gap-6">
             <p className="w-fit rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-              Revision that fits your day
+              Revision that fits your schedule
             </p>
             <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
               Pass your joinery theory with structured revision and real exam practice
