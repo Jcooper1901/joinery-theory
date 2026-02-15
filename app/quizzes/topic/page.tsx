@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -119,6 +119,23 @@ function Confetti({ show }: { show: boolean }) {
 }
 
 export default function TopicQuizPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+          <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 pb-20 pt-32 sm:px-8">
+            <h1 className="text-3xl font-semibold text-white">Quiz</h1>
+            <p className="text-sm text-[var(--muted)]">Loading quiz...</p>
+          </div>
+        </div>
+      }
+    >
+      <TopicQuizPageContent />
+    </Suspense>
+  );
+}
+
+function TopicQuizPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const levelParam = searchParams.get("level") ?? "";
