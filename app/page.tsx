@@ -181,7 +181,7 @@ export default function Home() {
           </div>
           <div className="pt-0">
 
-            <p className="mt-1 mb-1 text-sm font-semibold text-white"></p>
+            <p className="mt-0 mb-1 text-sm font-semibold text-white"></p>
             <div className="gradient-border">
               <div className="glass-card bg-noise rounded-[var(--radius-24)] p-6 shadow-large">
               <div className="flex items-center justify-between text-xs text-[var(--muted)]">
