@@ -126,7 +126,7 @@ export default function Home() {
               Exam-style quizzes
             </span>
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Micro lessons 
+              Micro lessons
             </span>
           </div>
           <p className="mt-10 text-lg text-[var(--muted)]">
