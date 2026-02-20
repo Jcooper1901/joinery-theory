@@ -1,4 +1,12 @@
-[
+export type QuizQuestion = {
+  id: string;
+  question: string;
+  options: [string, string, string, string];
+  correctIndex: 0 | 1 | 2 | 3;
+  explanation: string;
+};
+
+export const powertoolsQuestions: QuizQuestion[] = [
   {
     id: "PT-Q-001",
     question: "Which planer bed sets how much material is removed?",
@@ -239,7 +247,6 @@
     correctIndex: 1,
     explanation: "Build to the final size."
   },
-  [
   {
     id: "PT-Q-021",
     question: "Which planer bed supports the timber after it has been cut?",
@@ -479,9 +486,7 @@
     ],
     correctIndex: 1,
     explanation: "Edges may be worn."
-  }
-],
-[
+  },
   {
     id: "PT-Q-041",
     question: "Which planer bed controls how much material is removed?",
@@ -691,9 +696,7 @@
     options: ["In seconds", "In 5 minutes", "Only when unplugged", "Only when cooled"],
     correctIndex: 0,
     explanation: "Modern routers brake quickly within seconds."
-  }
-],
-[
+  },
   {
     id: "PTX-001",
     question: "Why are power tools popular in site carpentry?",
@@ -928,9 +931,7 @@
     ],
     correctIndex: 2,
     explanation: "Air entering the bloodstream can kill."
-  }
-],
-[
+  },
   {
     id: "PTX-021",
     question: "What is the main benefit of hiring tools?",
@@ -1165,9 +1166,7 @@
     ],
     correctIndex: 2,
     explanation: "It states precautions and PPE."
-  }
-],
-[
+  },
   {
     id: "PTX-041",
     question: "Power tools are dangerous, so safe practice is:",
@@ -1407,9 +1406,7 @@
     ],
     correctIndex: 2,
     explanation: "It relieves pressure in the timber."
-  }
-],
-[
+  },
   {
     id: "PTX-061",
     question: "Which surface of the planer supports the finished cut?",
@@ -1649,9 +1646,7 @@
     ],
     correctIndex: 2,
     explanation: "It can take off a lot fast."
-  }
-],
-[
+  },
   {
     id: "PTX-081",
     question: "Which part of the router holds the cutter?",
@@ -1891,9 +1886,7 @@
     ],
     correctIndex: 1,
     explanation: "Higher wattage = more capacity."
-  }
-],
-[
+  },
   {
     id: "PTX-101",
     question: "Using a fence when routing mainly controls:",
@@ -2134,7 +2127,5 @@
     correctIndex: 1,
     explanation: "Never go past centre in one cut."
   }
-],
+];
 
-
-]

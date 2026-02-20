@@ -4,10 +4,83 @@ import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-import {
-  level1HealthSafetyQuestions,
-  MCQQuestion,
-} from "../banks/level1.healthSafety";
+import { healthSafetyQuestions } from "@/data/questionBanks/healthAndSafety";
+import { questionBank as handtoolsQuestions } from "@/data/questionBanks/handtools";
+import { powertoolsQuestions } from "@/data/questionBanks/powertools";
+import { principlesOfBuildingQuestions } from "@/data/questionBanks/principlesofbuilding";
+import { questions as woodworkingJointsQuestions } from "@/data/questionBanks/woodworkingjoints";
+import { fixingLevel1Questions as ironmongeryQuestions } from "@/data/questionBanks/ironmongeryandfixings";
+
+// Type definition for multiple choice questions
+export type MCQQuestion = {
+  id: string;
+  level: "Level 1";
+  subtopic: string;
+  sourceLessonId?: string;
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  tags: string[];
+};
+
+function convertRawToMCQ(q: any, subtopic: string): MCQQuestion {
+  return {
+    id: q.id,
+    level: "Level 1",
+    subtopic,
+    sourceLessonId: q.lessonId ?? q.lessonId,
+    question: q.question,
+    options: Array.isArray(q.options) ? q.options : [],
+    correctIndex: typeof q.correctIndex === "number" ? q.correctIndex : 0,
+    explanation: q.explanation ?? "",
+    tags: [],
+  };
+}
+
+function getRawBankForTopic(normalizedTopic: string): any[] {
+  switch (normalizedTopic) {
+    case "health and safety":
+      return healthSafetyQuestions as any[];
+    case "hand tools":
+      return handtoolsQuestions as unknown as any[];
+    case "power tools":
+      return powertoolsQuestions as any[];
+    case "woodworking joints":
+      return woodworkingJointsQuestions as any[];
+    case "ironmongery and fixings":
+      return ironmongeryQuestions as any[];
+    case "principles of building":
+      return principlesOfBuildingQuestions as any[];
+    default:
+      return [];
+  }
+}
+
+function buildMCQListForTopic(topicParam: string): MCQQuestion[] {
+  const normalized = topicParam.trim().toLowerCase();
+  if (
+    normalized === "level 1 multiple choice" ||
+    normalized === "level1 multiple choice" ||
+    normalized === "level 1 multiple-choice"
+  ) {
+    const combined: MCQQuestion[] = [];
+    combined.push(
+      ...healthSafetyQuestions.map((q) => convertRawToMCQ(q, "Health and Safety"))
+    );
+    combined.push(...handtoolsQuestions.map((q) => convertRawToMCQ(q, "Hand Tools")));
+    combined.push(...powertoolsQuestions.map((q) => convertRawToMCQ(q, "Power Tools")));
+    combined.push(
+      ...principlesOfBuildingQuestions.map((q) => convertRawToMCQ(q, "Principles of Building"))
+    );
+    combined.push(...woodworkingJointsQuestions.map((q) => convertRawToMCQ(q, "Woodworking Joints")));
+    combined.push(...ironmongeryQuestions.map((q) => convertRawToMCQ(q, "Ironmongery and Fixings")));
+    return combined;
+  }
+
+  const raw = getRawBankForTopic(normalized);
+  return raw.map((q) => convertRawToMCQ(q, topicParam));
+}
 
 type QuizSavedState = {
   version: 1;
@@ -158,12 +231,23 @@ function TopicQuizPageContent() {
     [level, topic, count]
   );
 
-  const isHealthSafety = useMemo(() => {
+  const isLevel1Topic = useMemo(() => {
     const normalizedLevel = levelParam.trim().toLowerCase();
     const normalizedTopic = topicParam.trim().toLowerCase();
+    const supported = new Set([
+      "health and safety",
+      "hand tools",
+      "power tools",
+      "woodworking joints",
+      "ironmongery and fixings",
+      "principles of building",
+      "level 1 multiple choice",
+      "level1 multiple choice",
+      "level 1 multiple-choice",
+    ]);
     return (
       (normalizedLevel === "1" || normalizedLevel === "level 1") &&
-      normalizedTopic === "health and safety"
+      supported.has(normalizedTopic)
     );
   }, [levelParam, topicParam]);
 
@@ -266,7 +350,7 @@ function TopicQuizPageContent() {
       if (isHistory) {
         return;
       }
-      if (!isHealthSafety || questions.length === 0) {
+      if (!isLevel1Topic || questions.length === 0) {
         return;
       }
       const payload: QuizSavedState = {
@@ -295,7 +379,7 @@ function TopicQuizPageContent() {
       finishedAt,
       flagged,
       isHistory,
-      isHealthSafety,
+      isLevel1Topic,
       level,
       questions,
       score,
@@ -387,8 +471,9 @@ function TopicQuizPageContent() {
         }
         window.localStorage.removeItem(storageKey);
       }
-      if (isHealthSafety) {
-        const shuffled = shuffleQuestions(level1HealthSafetyQuestions);
+      if (isLevel1Topic) {
+        const converted = buildMCQListForTopic(topic);
+        const shuffled = shuffleQuestions(converted);
         setQuestions(shuffled.slice(0, count));
         setCurrentIndex(0);
         setAnswers({});
@@ -403,7 +488,7 @@ function TopicQuizPageContent() {
       }
       return;
     }
-    if (!isHealthSafety) {
+    if (!isLevel1Topic) {
       setResumeData(null);
       setResumeStatus("ready");
       return;
@@ -432,7 +517,7 @@ function TopicQuizPageContent() {
     }
     setResumeData(null);
     setResumeStatus("ready");
-  }, [count, isHealthSafety, isHistory, isNewAttempt, level, storageKey, topic]);
+  }, [count, isLevel1Topic, isHistory, isNewAttempt, level, storageKey, topic]);
 
   useEffect(() => {
     if (!isHistory) {
@@ -554,7 +639,7 @@ function TopicQuizPageContent() {
   }, [attemptId, isHistory]);
 
   useEffect(() => {
-    if (!isHealthSafety) {
+    if (!isLevel1Topic) {
       setQuestions([]);
       setCurrentIndex(0);
       setAnswers({});
@@ -571,7 +656,8 @@ function TopicQuizPageContent() {
     if (isHistory) {
       return;
     }
-    const shuffled = shuffleQuestions(level1HealthSafetyQuestions);
+    const converted = buildMCQListForTopic(topic);
+    const shuffled = shuffleQuestions(converted);
     setQuestions(shuffled.slice(0, count));
     setCurrentIndex(0);
     setAnswers({});
@@ -583,7 +669,7 @@ function TopicQuizPageContent() {
     setIsRunning(false);
     setShowConfetti(false);
     setFinishedAt(null);
-  }, [count, isHealthSafety, isHistory]);
+  }, [count, isLevel1Topic, isHistory]);
 
   useEffect(() => {
     if (isHistory) {
@@ -667,11 +753,12 @@ function TopicQuizPageContent() {
   };
 
   const handleRestart = useCallback(() => {
-    if (!isHealthSafety || isHistory) {
+    if (!isLevel1Topic || isHistory) {
       return;
     }
     clearSavedSession();
-    const shuffled = shuffleQuestions(level1HealthSafetyQuestions);
+    const converted = buildMCQListForTopic(topic);
+    const shuffled = shuffleQuestions(converted);
     setQuestions(shuffled.slice(0, count));
     setCurrentIndex(0);
     setAnswers({});
@@ -683,7 +770,7 @@ function TopicQuizPageContent() {
     setIsRunning(false);
     setShowConfetti(false);
     setFinishedAt(null);
-  }, [clearSavedSession, count, isHealthSafety, isHistory]);
+  }, [clearSavedSession, count, isLevel1Topic, isHistory, topic]);
 
   const handleStartNew = () => {
     if (isHistory) {
@@ -737,7 +824,7 @@ function TopicQuizPageContent() {
   const currentQuestion = questions[currentIndex];
   const selectedIndex = currentQuestion ? answers[currentQuestion.id] : undefined;
 
-  if (!isHealthSafety && !isHistory) {
+  if (!isLevel1Topic && !isHistory) {
     return (
       <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
         <div className="mx-auto flex max-w-3xl flex-col gap-4 px-5 pb-20 pt-32 sm:px-8">

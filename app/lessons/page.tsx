@@ -106,7 +106,7 @@ export default function LessonsPage() {
         </div>
 
         {introMode ? (
-          <div className="mt-12 flex justify-center">
+            <div className="mt-12 flex justify-center">
             <div className="glass-card w-full max-w-xl rounded-[var(--radius-24)] border border-white/10 p-8 text-center">
               <h2 className="text-2xl font-semibold text-white">
                 {introTitle}
@@ -133,7 +133,13 @@ export default function LessonsPage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => console.log("start exam", introMode)}
+                  onClick={() => {
+                    // Open the question quantity modal for Level 1 multiple choice
+                    setSelectedTopic("Level 1 multiple choice");
+                    setSelectedQty(null);
+                    setIsModalOpen(true);
+                    setIntroMode(null);
+                  }}
                   className="btn-primary"
                 >
                   Continue

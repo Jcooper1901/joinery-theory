@@ -1,4 +1,4 @@
-[
+export const questionBank = [
   {
     id: "CHT-Q101",
     question: "What is the main purpose of a shooting board?",
@@ -6,10 +6,10 @@
       "To hold the timber vertically",
       "To support the far edge",
       "To clamp the near corner",
-      "To angle the plane iron"
+      "To angle the plane iron",
     ],
     correctIndex: 1,
-    explanation: "The board supports the far edge and helps keep the end square."
+    explanation: "The board supports the far edge and helps keep the end square.",
   },
   {
     id: "CHT-Q102",
@@ -18,1836 +18,1046 @@
       "To improve appearance",
       "To guide the blade",
       "To absorb breakout",
-      "To shorten the cut"
+      "To shorten the cut",
     ],
     correctIndex: 2,
-    explanation: "The scrap timber takes the damage instead of the work."
+    explanation: "The scrap timber takes the damage instead of the work.",
   },
   {
     id: "CHT-Q103",
     question: "Which plane is normally used for flushing joints?",
-    options: [
-      "Rebate plane",
-      "Block plane",
-      "Smoothing plane",
-      "Shoulder plane"
-    ],
+    options: ["Rebate plane", "Block plane", "Smoothing plane", "Shoulder plane"],
     correctIndex: 2,
-    explanation: "A smoothing plane levels shoulders and removes high spots."
+    explanation: "A smoothing plane levels shoulders and removes high spots.",
   },
   {
     id: "CHT-Q104",
     question: "What happens if you over-plane the corners?",
-    options: [
-      "They become rounded",
-      "They grip tighter",
-      "They stay level",
-      "They grow wider"
-    ],
+    options: ["They become rounded", "They grip tighter", "They stay level", "They grow wider"],
     correctIndex: 0,
-    explanation: "Tipping the plane rounds the frame."
+    explanation: "Tipping the plane rounds the frame.",
   },
   {
     id: "CHT-Q105",
     question: "Why must the plane not drop inside the frame?",
-    options: [
-      "It becomes slower",
-      "It damages the inner edge",
-      "It improves the cut",
-      "It saves effort"
-    ],
+    options: ["It becomes slower", "It damages the inner edge", "It improves the cut", "It saves effort"],
     correctIndex: 1,
-    explanation: "The sole can strike the inside and cause damage."
+    explanation: "The sole can strike the inside and cause damage.",
   },
   {
     id: "CHT-Q106",
     question: "How should final flushing passes be taken?",
-    options: [
-      "Deep and aggressive",
-      "Across the grain",
-      "Light and controlled",
-      "Fast and heavy"
-    ],
+    options: ["Deep and aggressive", "Across the grain", "Light and controlled", "Fast and heavy"],
     correctIndex: 2,
-    explanation: "Light shavings improve the finish."
+    explanation: "Light shavings improve the finish.",
   },
   {
     id: "CHT-Q107",
     question: "Wood or plastic chisel handles should be struck with:",
-    options: [
-      "A steel hammer",
-      "A mallet",
-      "Another chisel",
-      "Your palm"
-    ],
+    options: ["A steel hammer", "A mallet", "Another chisel", "Your palm"],
     correctIndex: 1,
-    explanation: "Steel hammers can damage them."
+    explanation: "Steel hammers can damage them.",
   },
   {
     id: "CHT-Q108",
     question: "When is a steel hammer acceptable on a chisel?",
-    options: [
-      "When it is blunt",
-      "When it has a metal cap",
-      "When cutting softwood",
-      "When paring only"
-    ],
+    options: ["When it is blunt", "When it has a metal cap", "When cutting softwood", "When paring only"],
     correctIndex: 1,
-    explanation: "Metal inserts are designed for hammer blows."
+    explanation: "Metal inserts are designed for hammer blows.",
   },
   {
     id: "CHT-Q109",
     question: "Chisels are available in:",
-    options: [
-      "One standard size",
-      "Only narrow widths",
-      "A wide range of widths",
-      "Metric sizes only"
-    ],
+    options: ["One standard size", "Only narrow widths", "A wide range of widths", "Metric sizes only"],
     correctIndex: 2,
-    explanation: "Common sizes run from small to large."
+    explanation: "Common sizes run from small to large.",
   },
   {
     id: "CHT-Q110",
     question: "Why should good chisels be purchased?",
-    options: [
-      "They are disposable",
-      "They last many years",
-      "They cut faster",
-      "They are cheaper"
-    ],
+    options: ["They are disposable", "They last many years", "They cut faster", "They are cheaper"],
     correctIndex: 1,
-    explanation: "Quality tools are an investment."
+    explanation: "Quality tools are an investment.",
   },
   {
     id: "CHT-Q111",
     question: "What part of the chisel fits into the handle?",
-    options: [
-      "Ferrule",
-      "Blade",
-      "Tang",
-      "Washer"
-    ],
+    options: ["Ferrule", "Blade", "Tang", "Washer"],
     correctIndex: 2,
-    explanation: "The tang is inserted into the handle."
+    explanation: "The tang is inserted into the handle.",
   },
   {
     id: "CHT-Q112",
     question: "Where should your hands be during chiselling?",
-    options: [
-      "In front of the edge",
-      "Behind the cutting edge",
-      "On the tip",
-      "Under the timber"
-    ],
+    options: ["In front of the edge", "Behind the cutting edge", "On the tip", "Under the timber"],
     correctIndex: 1,
-    explanation: "Keeping hands behind reduces injury risk."
+    explanation: "Keeping hands behind reduces injury risk.",
   },
   {
     id: "CHT-Q113",
     question: "How should you pass a chisel to someone?",
-    options: [
-      "Blade first",
-      "Toss it gently",
-      "Handle first",
-      "Point down"
-    ],
+    options: ["Blade first", "Toss it gently", "Handle first", "Point down"],
     correctIndex: 2,
-    explanation: "This reduces accidental contact."
+    explanation: "This reduces accidental contact.",
   },
   {
     id: "CHT-Q114",
     question: "What is a bevel edge chisel good for?",
-    options: [
-      "Wide open areas",
-      "Tight corners",
-      "Heavy demolition",
-      "Large mortices"
-    ],
+    options: ["Wide open areas", "Tight corners", "Heavy demolition", "Large mortices"],
     correctIndex: 1,
-    explanation: "The bevelled sides allow access."
+    explanation: "The bevelled sides allow access.",
   },
   {
     id: "CHT-Q115",
     question: "How do firmer chisels differ?",
-    options: [
-      "They are thinner",
-      "They have square sides",
-      "They are lighter",
-      "They are curved"
-    ],
+    options: ["They are thinner", "They have square sides", "They are lighter", "They are curved"],
     correctIndex: 1,
-    explanation: "They are stronger and suited to site work."
+    explanation: "They are stronger and suited to site work.",
   },
   {
     id: "CHT-Q116",
     question: "What is a mortice chisel designed for?",
-    options: [
-      "Paring veneers",
-      "Chopping mortices",
-      "Fine carving",
-      "Marking lines"
-    ],
+    options: ["Paring veneers", "Chopping mortices", "Fine carving", "Marking lines"],
     correctIndex: 1,
-    explanation: "Its thick section handles heavy blows."
+    explanation: "Its thick section handles heavy blows.",
   },
   {
     id: "CHT-Q117",
     question: "Gouges are mainly used for:",
-    options: [
-      "Straight trimming",
-      "Curved work",
-      "Measuring",
-      "Scribing lines"
-    ],
+    options: ["Straight trimming", "Curved work", "Measuring", "Scribing lines"],
     correctIndex: 1,
-    explanation: "They form curves."
+    explanation: "They form curves.",
   },
   {
     id: "CHT-Q118",
     question: "Most joinery gouges are ground:",
-    options: [
-      "On the outside",
-      "On the inside",
-      "Both sides",
-      "At the tip"
-    ],
+    options: ["On the outside", "On the inside", "Both sides", "At the tip"],
     correctIndex: 1,
-    explanation: "Inside grinding matches their use."
+    explanation: "Inside grinding matches their use.",
   },
   {
     id: "CHT-Q119",
     question: "What are the two common knife types?",
-    options: [
-      "Utility and marking",
-      "Folding and carving",
-      "Large and small",
-      "Plastic and steel"
-    ],
+    options: ["Utility and marking", "Folding and carving", "Large and small", "Plastic and steel"],
     correctIndex: 0,
-    explanation: "These are the usual categories."
+    explanation: "These are the usual categories.",
   },
   {
     id: "CHT-Q120",
     question: "Why do utility knives retract?",
-    options: [
-      "To cut faster",
-      "For decoration",
-      "For safety",
-      "To change angle"
-    ],
+    options: ["To cut faster", "For decoration", "For safety", "To change angle"],
     correctIndex: 2,
-    explanation: "Retracting protects users."
+    explanation: "Retracting protects users.",
   },
-[
+
   {
     id: "CHT-Q121",
     question: "What is a marking knife mainly used for?",
-    options: [
-      "Opening packaging neatly",
-      "Cutting insulation boards",
-      "Making precise layout lines",
-      "Trimming plastic parts"
-    ],
+    options: ["Opening packaging neatly", "Cutting insulation boards", "Making precise layout lines", "Trimming plastic parts"],
     correctIndex: 2,
-    explanation: "Marking knives are for accurate joint and hinge layout."
+    explanation: "Marking knives are for accurate joint and hinge layout.",
   },
   {
     id: "CHT-Q122",
     question: "A marking knife is normally ground:",
-    options: [
-      "On one side only",
-      "With two bevels",
-      "Completely flat",
-      "Along the back"
-    ],
+    options: ["On one side only", "With two bevels", "Completely flat", "Along the back"],
     correctIndex: 0,
-    explanation: "The single bevel lets it sit tight to a square."
+    explanation: "The single bevel lets it sit tight to a square.",
   },
   {
     id: "CHT-Q123",
     question: "Are marking knives handed?",
-    options: [
-      "No, never",
-      "Yes, left and right",
-      "Only for experts",
-      "Only in sets"
-    ],
+    options: ["No, never", "Yes, left and right", "Only for experts", "Only in sets"],
     correctIndex: 1,
-    explanation: "They are made for left or right handed users."
+    explanation: "They are made for left or right handed users.",
   },
   {
     id: "CHT-Q124",
     question: "Chisels can be used for:",
-    options: [
-      "Cleaning out waste",
-      "Only cutting mortices",
-      "Sharpening saws",
-      "Measuring timber"
-    ],
+    options: ["Cleaning out waste", "Only cutting mortices", "Sharpening saws", "Measuring timber"],
     correctIndex: 0,
-    explanation: "They have many uses including cleaning and trimming."
+    explanation: "They have many uses including cleaning and trimming.",
   },
   {
     id: "CHT-Q125",
     question: "Before cutting a recess you should:",
-    options: [
-      "Clamp it tightly",
-      "Mark the area",
-      "Lubricate tools",
-      "Drill first"
-    ],
+    options: ["Clamp it tightly", "Mark the area", "Lubricate tools", "Drill first"],
     correctIndex: 1,
-    explanation: "Accurate marking must be done first."
+    explanation: "Accurate marking must be done first.",
   },
   {
     id: "CHT-Q126",
     question: "During the walking method the chisel is held at:",
-    options: [
-      "About 45 degrees",
-      "Nearly vertical",
-      "About 10 degrees",
-      "Flat to the face"
-    ],
+    options: ["About 45 degrees", "Nearly vertical", "About 10 degrees", "Flat to the face"],
     correctIndex: 0,
-    explanation: "This helps lift the grain in stages."
+    explanation: "This helps lift the grain in stages.",
   },
   {
     id: "CHT-Q127",
     question: "For the final cut in a recess the chisel should be:",
-    options: [
-      "Angled forward",
-      "Vertical, bevel away",
-      "Tilted sideways",
-      "Nearly flat"
-    ],
+    options: ["Angled forward", "Vertical, bevel away", "Tilted sideways", "Nearly flat"],
     correctIndex: 1,
-    explanation: "This keeps the line clean."
+    explanation: "This keeps the line clean.",
   },
   {
     id: "CHT-Q128",
     question: "Paring should finish:",
-    options: [
-      "Past the line",
-      "Near the centre",
-      "On the gauge line",
-      "Below the surface"
-    ],
+    options: ["Past the line", "Near the centre", "On the gauge line", "Below the surface"],
     correctIndex: 2,
-    explanation: "Accuracy is more important than speed."
+    explanation: "Accuracy is more important than speed.",
   },
   {
     id: "CHT-Q129",
     question: "Why angle the chisel for a shear cut?",
-    options: [
-      "To remove bulk",
-      "To get a smoother finish",
-      "To increase speed",
-      "To widen the recess"
-    ],
+    options: ["To remove bulk", "To get a smoother finish", "To increase speed", "To widen the recess"],
     correctIndex: 1,
-    explanation: "Slicing fibres leaves a cleaner surface."
+    explanation: "Slicing fibres leaves a cleaner surface.",
   },
   {
     id: "CHT-Q130",
     question: "After paring, you should:",
-    options: [
-      "Add glue",
-      "Re-mark lines",
-      "Check the fit",
-      "Sand heavily"
-    ],
+    options: ["Add glue", "Re-mark lines", "Check the fit", "Sand heavily"],
     correctIndex: 2,
-    explanation: "Only adjust if necessary."
+    explanation: "Only adjust if necessary.",
   },
   {
     id: "CHT-Q131",
     question: "When starting a mortice you begin at:",
-    options: [
-      "The centre",
-      "The near end",
-      "The far end",
-      "Either side"
-    ],
+    options: ["The centre", "The near end", "The far end", "Either side"],
     correctIndex: 2,
-    explanation: "You work back toward yourself."
+    explanation: "You work back toward yourself.",
   },
   {
     id: "CHT-Q132",
     question: "Which face of the chisel goes to the line?",
-    options: [
-      "The bevel",
-      "The flat face",
-      "Either side",
-      "The corner"
-    ],
+    options: ["The bevel", "The flat face", "Either side", "The corner"],
     correctIndex: 1,
-    explanation: "This helps keep the mortice accurate."
+    explanation: "This helps keep the mortice accurate.",
   },
   {
     id: "CHT-Q133",
     question: "Why lever the chisel after striking?",
-    options: [
-      "To sharpen it",
-      "To break the grain",
-      "To widen it",
-      "To polish sides"
-    ],
+    options: ["To sharpen it", "To break the grain", "To widen it", "To polish sides"],
     correctIndex: 1,
-    explanation: "It loosens fibres so waste comes free."
+    explanation: "It loosens fibres so waste comes free.",
   },
   {
     id: "CHT-Q134",
     question: "Why turn the timber when morticing?",
-    options: [
-      "For comfort",
-      "To prevent splitting",
-      "To change angle",
-      "To save time"
-    ],
+    options: ["For comfort", "To prevent splitting", "To change angle", "To save time"],
     correctIndex: 1,
-    explanation: "Cutting from both sides avoids breakout."
+    explanation: "Cutting from both sides avoids breakout.",
   },
   {
     id: "CHT-Q135",
     question: "Forcing the chisel straight through can:",
-    options: [
-      "Improve speed",
-      "Split the timber",
-      "Sharpen edges",
-      "Reduce noise"
-    ],
+    options: ["Improve speed", "Split the timber", "Sharpen edges", "Reduce noise"],
     correctIndex: 1,
-    explanation: "It risks serious damage."
+    explanation: "It risks serious damage.",
   },
   {
     id: "CHT-Q136",
     question: "After chopping a mortice the ends should be:",
-    options: [
-      "Burnished",
-      "Clean",
-      "Painted",
-      "Rounded"
-    ],
+    options: ["Burnished", "Clean", "Painted", "Rounded"],
     correctIndex: 1,
-    explanation: "Keep them tidy and within lines."
+    explanation: "Keep them tidy and within lines.",
   },
   {
     id: "CHT-Q137",
     question: "Waste in a mortice should be cleared using:",
-    options: [
-      "A blunt tool",
-      "The sharp edge",
-      "A saw",
-      "A rasp"
-    ],
+    options: ["A blunt tool", "The sharp edge", "A saw", "A rasp"],
     correctIndex: 0,
-    explanation: "Avoid damaging the cutting edge."
+    explanation: "Avoid damaging the cutting edge.",
   },
   {
     id: "CHT-Q138",
     question: "Why is the back of a mortice slightly wider?",
-    options: [
-      "For decoration",
-      "For wedges",
-      "For drainage",
-      "For speed"
-    ],
+    options: ["For decoration", "For wedges", "For drainage", "For speed"],
     correctIndex: 1,
-    explanation: "It allows the wedges to spread."
+    explanation: "It allows the wedges to spread.",
   },
   {
     id: "CHT-Q139",
     question: "Loose fibres left in a mortice are called:",
-    options: [
-      "Ridges",
-      "Whiskers",
-      "Splits",
-      "Burrs"
-    ],
+    options: ["Ridges", "Whiskers", "Splits", "Burrs"],
     correctIndex: 1,
-    explanation: "They should be cleaned before assembly."
+    explanation: "They should be cleaned before assembly.",
   },
   {
     id: "CHT-Q140",
     question: "Should you widen a mortice unnecessarily?",
-    options: [
-      "Yes, always",
-      "Only in softwood",
-      "No",
-      "If rushed"
-    ],
+    options: ["Yes, always", "Only in softwood", "No", "If rushed"],
     correctIndex: 2,
-    explanation: "Only remove what is required."
-  }
-],
-[
+    explanation: "Only remove what is required.",
+  },
+
   {
     id: "PT-Q141",
     question: "Which planer bed sets how much material is removed?",
-    options: [
-      "The outfeed bed",
-      "The infeed bed",
-      "The fence plate",
-      "The cutter guard"
-    ],
+    options: ["The outfeed bed", "The infeed bed", "The fence plate", "The cutter guard"],
     correctIndex: 1,
-    explanation: "The infeed bed is adjustable and controls the cut depth."
+    explanation: "The infeed bed is adjustable and controls the cut depth.",
   },
   {
     id: "PT-Q142",
     question: "The outfeed bed on a planer is normally:",
-    options: [
-      "Adjustable",
-      "Spring loaded",
-      "Fixed",
-      "Removable"
-    ],
+    options: ["Adjustable", "Spring loaded", "Fixed", "Removable"],
     correctIndex: 2,
-    explanation: "It supports the timber after cutting."
+    explanation: "It supports the timber after cutting.",
   },
   {
     id: "PT-Q143",
     question: "Planer cutters are commonly called:",
-    options: [
-      "Blades",
-      "Teeth",
-      "Knives",
-      "Bits"
-    ],
+    options: ["Blades", "Teeth", "Knives", "Bits"],
     correctIndex: 2,
-    explanation: "They are referred to as knives."
+    explanation: "They are referred to as knives.",
   },
   {
     id: "PT-Q144",
     question: "Most planer knives usually have:",
-    options: [
-      "Four edges",
-      "One edge",
-      "Two edges",
-      "No edges"
-    ],
+    options: ["Four edges", "One edge", "Two edges", "No edges"],
     correctIndex: 2,
-    explanation: "They can be turned when one side is blunt."
+    explanation: "They can be turned when one side is blunt.",
   },
   {
     id: "PT-Q145",
     question: "What must you do before changing planer knives?",
-    options: [
-      "Oil the block",
-      "Disconnect power",
-      "Lower the fence",
-      "Clamp the bed"
-    ],
+    options: ["Oil the block", "Disconnect power", "Lower the fence", "Clamp the bed"],
     correctIndex: 1,
-    explanation: "Never work on live equipment."
+    explanation: "Never work on live equipment.",
   },
   {
     id: "PT-Q146",
     question: "To remove a planer knife you first:",
-    options: [
-      "Heat the block",
-      "Tap it loose",
-      "Loosen the bolts",
-      "Remove the guard"
-    ],
+    options: ["Heat the block", "Tap it loose", "Loosen the bolts", "Remove the guard"],
     correctIndex: 2,
-    explanation: "The bolts hold the wedge bar."
+    explanation: "The bolts hold the wedge bar.",
   },
   {
     id: "PT-Q147",
     question: "Before fitting knives you should remove:",
-    options: [
-      "Paint",
-      "Oil",
-      "Dust and resin",
-      "Rust only"
-    ],
+    options: ["Paint", "Oil", "Dust and resin", "Rust only"],
     correctIndex: 2,
-    explanation: "Clean seating ensures accuracy."
+    explanation: "Clean seating ensures accuracy.",
   },
   {
     id: "PT-Q148",
     question: "Knife alignment is ensured by:",
-    options: [
-      "Magnets",
-      "Pins",
-      "Glue",
-      "Springs"
-    ],
+    options: ["Magnets", "Pins", "Glue", "Springs"],
     correctIndex: 1,
-    explanation: "The holes fit over pins."
+    explanation: "The holes fit over pins.",
   },
   {
     id: "PT-Q149",
     question: "After positioning, the bolts must be:",
-    options: [
-      "Left loose",
-      "Removed",
-      "Fully tightened",
-      "Painted"
-    ],
+    options: ["Left loose", "Removed", "Fully tightened", "Painted"],
     correctIndex: 2,
-    explanation: "Loose bolts are dangerous."
+    explanation: "Loose bolts are dangerous.",
   },
   {
     id: "PT-Q150",
     question: "Why should you limit planer depth?",
-    options: [
-      "To save noise",
-      "To reduce weight",
-      "For better control",
-      "For colour"
-    ],
+    options: ["To save noise", "To reduce weight", "For better control", "For colour"],
     correctIndex: 2,
-    explanation: "Heavy cuts reduce accuracy."
+    explanation: "Heavy cuts reduce accuracy.",
   },
   {
     id: "PT-Q151",
     question: "A typical maximum planer cut is about:",
-    options: [
-      "10 mm",
-      "5 mm",
-      "2 mm",
-      "15 mm"
-    ],
+    options: ["10 mm", "5 mm", "2 mm", "15 mm"],
     correctIndex: 2,
-    explanation: "More should be done in passes."
+    explanation: "More should be done in passes.",
   },
   {
     id: "PT-Q152",
     question: "Heavy cuts can cause the planer to:",
-    options: [
-      "Polish the wood",
-      "Jump",
-      "Sharpen itself",
-      "Slow silently"
-    ],
+    options: ["Polish the wood", "Jump", "Sharpen itself", "Slow silently"],
     correctIndex: 1,
-    explanation: "This leaves chatter marks."
+    explanation: "This leaves chatter marks.",
   },
   {
     id: "PT-Q153",
     question: "Moving too fast when planing may create:",
-    options: [
-      "Perfect finish",
-      "Pitch marks",
-      "Square edges",
-      "Better colour"
-    ],
+    options: ["Perfect finish", "Pitch marks", "Square edges", "Better colour"],
     correctIndex: 1,
-    explanation: "Fast feed leaves bumps."
+    explanation: "Fast feed leaves bumps.",
   },
   {
     id: "PT-Q154",
     question: "Fast feeding can damage surface fibres causing:",
-    options: [
-      "Staining",
-      "Tear out",
-      "Hardening",
-      "Warping"
-    ],
+    options: ["Staining", "Tear out", "Hardening", "Warping"],
     correctIndex: 1,
-    explanation: "Control your feed rate."
+    explanation: "Control your feed rate.",
   },
   {
     id: "PT-Q155",
     question: "Splitting at the end of timber happens as the cutter:",
-    options: [
-      "Enters",
-      "Exits",
-      "Stops",
-      "Sharpens"
-    ],
+    options: ["Enters", "Exits", "Stops", "Sharpens"],
     correctIndex: 1,
-    explanation: "The fibres are unsupported."
+    explanation: "The fibres are unsupported.",
   },
   {
     id: "PT-Q156",
     question: "To prevent end splitting you first make:",
-    options: [
-      "A deep trench",
-      "A short relief cut",
-      "A sanding pass",
-      "A drill hole"
-    ],
+    options: ["A deep trench", "A short relief cut", "A sanding pass", "A drill hole"],
     correctIndex: 1,
-    explanation: "About 20 mm long."
+    explanation: "About 20 mm long.",
   },
   {
     id: "PT-Q157",
     question: "When doing the full pass you should:",
-    options: [
-      "Stop early",
-      "Miss the relief",
-      "Run past it",
-      "Turn over"
-    ],
+    options: ["Stop early", "Miss the relief", "Run past it", "Turn over"],
     correctIndex: 2,
-    explanation: "This removes breakout risk."
+    explanation: "This removes breakout risk.",
   },
   {
     id: "PT-Q158",
     question: "Raised lines in the timber usually mean:",
-    options: [
-      "Good finish",
-      "Timber fault",
-      "Damaged knives",
-      "Wet wood"
-    ],
+    options: ["Good finish", "Timber fault", "Damaged knives", "Wet wood"],
     correctIndex: 2,
-    explanation: "Knives may be chipped."
+    explanation: "Knives may be chipped.",
   },
   {
     id: "PT-Q159",
     question: "Tungsten carbide knives are:",
-    options: [
-      "Soft",
-      "Flexible",
-      "Brittle",
-      "Rubber"
-    ],
+    options: ["Soft", "Flexible", "Brittle", "Rubber"],
     correctIndex: 2,
-    explanation: "They chip if they hit metal."
+    explanation: "They chip if they hit metal.",
   },
   {
     id: "PT-Q160",
     question: "Hitting staples while planing will:",
-    options: [
-      "Improve cut",
-      "Clean resin",
-      "Chip the edge",
-      "Slow rpm"
-    ],
+    options: ["Improve cut", "Clean resin", "Chip the edge", "Slow rpm"],
     correctIndex: 2,
-    explanation: "Metal damages cutters."
-  }
-],
-[
+    explanation: "Metal damages cutters.",
+  },
+
   {
     id: "PT-Q161",
     question: "A bevel cut with a planer:",
-    options: [
-      "Uses one corner only",
-      "Runs partly across",
-      "Forms two edges",
-      "Is always curved"
-    ],
+    options: ["Uses one corner only", "Runs partly across", "Forms two edges", "Is always curved"],
     correctIndex: 2,
-    explanation: "A bevel runs fully across and creates two edges."
+    explanation: "A bevel runs fully across and creates two edges.",
   },
   {
     id: "PT-Q162",
     question: "A chamfer normally:",
-    options: [
-      "Uses one corner",
-      "Runs full width",
-      "Needs a fence",
-      "Is always deep"
-    ],
+    options: ["Uses one corner", "Runs full width", "Needs a fence", "Is always deep"],
     correctIndex: 0,
-    explanation: "Chamfers remove one corner."
+    explanation: "Chamfers remove one corner.",
   },
   {
     id: "PT-Q163",
     question: "A rebate is:",
-    options: [
-      "A rounded groove",
-      "A right-angled recess",
-      "A curved edge",
-      "A surface polish"
-    ],
+    options: ["A rounded groove", "A right-angled recess", "A curved edge", "A surface polish"],
     correctIndex: 1,
-    explanation: "It is cut into a corner."
+    explanation: "It is cut into a corner.",
   },
   {
     id: "PT-Q164",
     question: "What helps guide a rebate?",
-    options: [
-      "The guard",
-      "The handle",
-      "The fence",
-      "The trigger"
-    ],
+    options: ["The guard", "The handle", "The fence", "The trigger"],
     correctIndex: 2,
-    explanation: "The fence keeps it straight."
+    explanation: "The fence keeps it straight.",
   },
   {
     id: "PT-Q165",
     question: "If the rebate is too deep for one pass you should:",
-    options: [
-      "Force it",
-      "Use several passes",
-      "Increase speed",
-      "Tilt the tool"
-    ],
+    options: ["Force it", "Use several passes", "Increase speed", "Tilt the tool"],
     correctIndex: 1,
-    explanation: "Build up depth gradually."
+    explanation: "Build up depth gradually.",
   },
   {
     id: "PT-Q166",
     question: "Which tool is described as one of the most versatile?",
-    options: [
-      "Planer",
-      "Router",
-      "Jointer",
-      "Sander"
-    ],
+    options: ["Planer", "Router", "Jointer", "Sander"],
     correctIndex: 1,
-    explanation: "Routers perform many operations."
+    explanation: "Routers perform many operations.",
   },
   {
     id: "PT-Q167",
     question: "A router can cut all EXCEPT:",
-    options: [
-      "Grooves",
-      "Rebates",
-      "Housings",
-      "Welding seams"
-    ],
+    options: ["Grooves", "Rebates", "Housings", "Welding seams"],
     correctIndex: 3,
-    explanation: "Routers are woodworking machines."
+    explanation: "Routers are woodworking machines.",
   },
   {
     id: "PT-Q168",
     question: "The router cutter is held in a:",
-    options: [
-      "Clamp plate",
-      "Collet",
-      "Fence",
-      "Turret"
-    ],
+    options: ["Clamp plate", "Collet", "Fence", "Turret"],
     correctIndex: 1,
-    explanation: "It grips the shank securely."
+    explanation: "It grips the shank securely.",
   },
   {
     id: "PT-Q169",
     question: "What helps guide the router path?",
-    options: [
-      "Fences",
-      "Guide bushes",
-      "Stops",
-      "All of these"
-    ],
+    options: ["Fences", "Guide bushes", "Stops", "All of these"],
     correctIndex: 3,
-    explanation: "Each can control movement."
+    explanation: "Each can control movement.",
   },
   {
     id: "PT-Q170",
     question: "Large diameter cutters should run:",
-    options: [
-      "Faster",
-      "Slower",
-      "At full speed",
-      "Backwards"
-    ],
+    options: ["Faster", "Slower", "At full speed", "Backwards"],
     correctIndex: 1,
-    explanation: "To maintain safe peripheral speed."
+    explanation: "To maintain safe peripheral speed.",
   },
   {
     id: "PT-Q171",
     question: "Typical router speeds are roughly:",
-    options: [
-      "500–2000 rpm",
-      "10000–22000 rpm",
-      "200–500 rpm",
-      "30000–50000 rpm"
-    ],
+    options: ["500–2000 rpm", "10000–22000 rpm", "200–500 rpm", "30000–50000 rpm"],
     correctIndex: 1,
-    explanation: "This is the usual working range."
+    explanation: "This is the usual working range.",
   },
   {
     id: "PT-Q172",
     question: "Soft start means:",
-    options: [
-      "Instant power",
-      "Gradual build up",
-      "Lower noise",
-      "Higher torque"
-    ],
+    options: ["Instant power", "Gradual build up", "Lower noise", "Higher torque"],
     correctIndex: 1,
-    explanation: "It reduces the jolt."
+    explanation: "It reduces the jolt.",
   },
   {
     id: "PT-Q173",
     question: "You should NOT start the router when:",
-    options: [
-      "The cable is new",
-      "The cutter touches the work",
-      "Using a fence",
-      "Extraction is on"
-    ],
+    options: ["The cable is new", "The cutter touches the work", "Using a fence", "Extraction is on"],
     correctIndex: 1,
-    explanation: "It can snatch."
+    explanation: "It can snatch.",
   },
   {
     id: "PT-Q174",
     question: "Handles mainly provide:",
-    options: [
-      "Decoration",
-      "Grip and control",
-      "Speed change",
-      "Cooling"
-    ],
+    options: ["Decoration", "Grip and control", "Speed change", "Cooling"],
     correctIndex: 1,
-    explanation: "They help safe operation."
+    explanation: "They help safe operation.",
   },
   {
     id: "PT-Q175",
     question: "The router base:",
-    options: [
-      "Holds the cable",
-      "Touches the work",
-      "Sharpens cutters",
-      "Stores bits"
-    ],
+    options: ["Holds the cable", "Touches the work", "Sharpens cutters", "Stores bits"],
     correctIndex: 1,
-    explanation: "It supports the router."
+    explanation: "It supports the router.",
   },
   {
     id: "PT-Q176",
     question: "The turret system allows:",
-    options: [
-      "Faster cutting",
-      "Several preset depths",
-      "Automatic feeding",
-      "Blade cooling"
-    ],
+    options: ["Faster cutting", "Several preset depths", "Automatic feeding", "Blade cooling"],
     correctIndex: 1,
-    explanation: "Rotate to choose."
+    explanation: "Rotate to choose.",
   },
   {
     id: "PT-Q177",
     question: "After setting depth you must:",
-    options: [
-      "Switch off",
-      "Lubricate",
-      "Lock it",
-      "Reverse feed"
-    ],
+    options: ["Switch off", "Lubricate", "Lock it", "Reverse feed"],
     correctIndex: 2,
-    explanation: "Stops movement."
+    explanation: "Stops movement.",
   },
   {
     id: "PT-Q178",
     question: "The fence mainly controls:",
-    options: [
-      "Noise",
-      "Width of cut",
-      "Motor heat",
-      "Dust flow"
-    ],
+    options: ["Noise", "Width of cut", "Motor heat", "Dust flow"],
     correctIndex: 1,
-    explanation: "It sets distance from the edge."
+    explanation: "It sets distance from the edge.",
   },
   {
     id: "PT-Q179",
     question: "A roller fence is especially useful on:",
-    options: [
-      "Flat boards",
-      "Curved work",
-      "Thick timber",
-      "Metal"
-    ],
+    options: ["Flat boards", "Curved work", "Thick timber", "Metal"],
     correctIndex: 1,
-    explanation: "It follows shapes."
+    explanation: "It follows shapes.",
   },
   {
     id: "PT-Q180",
     question: "Why use the supplied spanner?",
-    options: [
-      "Looks better",
-      "Avoid overtightening",
-      "Makes it faster",
-      "Increases rpm"
-    ],
+    options: ["Looks better", "Avoid overtightening", "Makes it faster", "Increases rpm"],
     correctIndex: 1,
-    explanation: "Prevents damage."
-  }
-],
-[
+    explanation: "Prevents damage.",
+  },
+
   {
     id: "PT-Q181",
     question: "When edge planing, the fence helps to:",
-    options: [
-      "Reduce vibration",
-      "Keep the cut straight",
-      "Increase depth",
-      "Stop overheating"
-    ],
+    options: ["Reduce vibration", "Keep the cut straight", "Increase depth", "Stop overheating"],
     correctIndex: 1,
-    explanation: "The fence guides accuracy."
+    explanation: "The fence guides accuracy.",
   },
   {
     id: "PT-Q182",
     question: "If the planer is left too long in one place it may:",
-    options: [
-      "Polish the timber",
-      "Create a hollow",
-      "Sharpen itself",
-      "Slow the motor"
-    ],
+    options: ["Polish the timber", "Create a hollow", "Sharpen itself", "Slow the motor"],
     correctIndex: 1,
-    explanation: "It removes extra material."
+    explanation: "It removes extra material.",
   },
   {
     id: "PT-Q183",
     question: "Before adjusting a planer you should:",
-    options: [
-      "Hold the trigger",
-      "Unplug it",
-      "Increase speed",
-      "Lift the guard"
-    ],
+    options: ["Hold the trigger", "Unplug it", "Increase speed", "Lift the guard"],
     correctIndex: 1,
-    explanation: "Prevents accidental start."
+    explanation: "Prevents accidental start.",
   },
   {
     id: "PT-Q184",
     question: "A router used without guidance can:",
-    options: [
-      "Improve accuracy",
-      "Wander off line",
-      "Cut slower",
-      "Reduce noise"
-    ],
+    options: ["Improve accuracy", "Wander off line", "Cut slower", "Reduce noise"],
     correctIndex: 1,
-    explanation: "Control is reduced."
+    explanation: "Control is reduced.",
   },
   {
     id: "PT-Q185",
     question: "Which helps copy shapes accurately?",
-    options: [
-      "Freehand cutting",
-      "Template and guide bush",
-      "High speed only",
-      "Extra pressure"
-    ],
+    options: ["Freehand cutting", "Template and guide bush", "High speed only", "Extra pressure"],
     correctIndex: 1,
-    explanation: "Templates repeat forms."
+    explanation: "Templates repeat forms.",
   },
   {
     id: "PT-Q186",
     question: "A shallow pass is better because it:",
-    options: [
-      "Needs more force",
-      "Improves control",
-      "Damages cutters",
-      "Reduces accuracy"
-    ],
+    options: ["Needs more force", "Improves control", "Damages cutters", "Reduces accuracy"],
     correctIndex: 1,
-    explanation: "Safer and cleaner."
+    explanation: "Safer and cleaner.",
   },
   {
     id: "PT-Q187",
     question: "Too deep a router cut can:",
-    options: [
-      "Snatch the tool",
-      "Polish edges",
-      "Cool the motor",
-      "Help balance"
-    ],
+    options: ["Snatch the tool", "Polish edges", "Cool the motor", "Help balance"],
     correctIndex: 0,
-    explanation: "The cutter may grab."
+    explanation: "The cutter may grab.",
   },
   {
     id: "PT-Q189",
     question: "You should wait for the cutter to stop before:",
-    options: [
-      "Switching on",
-      "Lifting the router",
-      "Setting depth",
-      "Plugging in"
-    ],
+    options: ["Switching on", "Lifting the router", "Setting depth", "Plugging in"],
     correctIndex: 1,
-    explanation: "Moving early risks damage."
+    explanation: "Moving early risks damage.",
   },
   {
     id: "PT-Q190",
     question: "Kickback is more likely if you:",
-    options: [
-      "Take light cuts",
-      "Maintain grip",
-      "Force the feed",
-      "Use a fence"
-    ],
+    options: ["Take light cuts", "Maintain grip", "Force the feed", "Use a fence"],
     correctIndex: 2,
-    explanation: "Aggressive feeding causes grabs."
+    explanation: "Aggressive feeding causes grabs.",
   },
   {
     id: "PT-Q191",
     question: "The correct feed direction normally:",
-    options: [
-      "Follows cutter rotation",
-      "Opposes cutter rotation",
-      "Is random",
-      "Depends on colour"
-    ],
+    options: ["Follows cutter rotation", "Opposes cutter rotation", "Is random", "Depends on colour"],
     correctIndex: 1,
-    explanation: "This gives control."
+    explanation: "This gives control.",
   },
   {
     id: "PT-Q192",
     question: "Climb cutting means:",
-    options: [
-      "Feeding against rotation",
-      "Feeding with rotation",
-      "Working uphill",
-      "Reducing depth"
-    ],
+    options: ["Feeding against rotation", "Feeding with rotation", "Working uphill", "Reducing depth"],
     correctIndex: 1,
-    explanation: "Higher risk method."
+    explanation: "Higher risk method.",
   },
   {
     id: "PT-Q193",
     question: "Climb cuts should generally:",
-    options: [
-      "Be avoided",
-      "Be standard",
-      "Replace fences",
-      "Use more depth"
-    ],
+    options: ["Be avoided", "Be standard", "Replace fences", "Use more depth"],
     correctIndex: 0,
-    explanation: "They reduce control."
+    explanation: "They reduce control.",
   },
   {
     id: "PT-Q194",
     question: "Before routing, timber must be:",
-    options: [
-      "Wet",
-      "Painted",
-      "Secure",
-      "Loose"
-    ],
+    options: ["Wet", "Painted", "Secure", "Loose"],
     correctIndex: 2,
-    explanation: "Stops movement."
+    explanation: "Stops movement.",
   },
   {
     id: "PT-Q195",
     question: "Loose material may cause:",
-    options: [
-      "Cleaner cuts",
-      "Tool control",
-      "Injury risk",
-      "Lower noise"
-    ],
+    options: ["Cleaner cuts", "Tool control", "Injury risk", "Lower noise"],
     correctIndex: 2,
-    explanation: "Movement is dangerous."
+    explanation: "Movement is dangerous.",
   },
   {
     id: "PT-Q196",
     question: "Hearing protection is important because routers are:",
-    options: [
-      "Silent",
-      "Very loud",
-      "Low powered",
-      "Slow"
-    ],
+    options: ["Silent", "Very loud", "Low powered", "Slow"],
     correctIndex: 1,
-    explanation: "High rpm = noise."
+    explanation: "High rpm = noise.",
   },
   {
     id: "PT-Q197",
     question: "Eye protection prevents injury from:",
-    options: [
-      "Heat only",
-      "Flying chips",
-      "Noise",
-      "Vibration"
-    ],
+    options: ["Heat only", "Flying chips", "Noise", "Vibration"],
     correctIndex: 1,
-    explanation: "Debris travels fast."
+    explanation: "Debris travels fast.",
   },
   {
     id: "PT-Q198",
     question: "Before changing a cutter:",
-    options: [
-      "Increase speed",
-      "Disconnect power",
-      "Lift the fence",
-      "Start routing"
-    ],
+    options: ["Increase speed", "Disconnect power", "Lift the fence", "Start routing"],
     correctIndex: 1,
-    explanation: "Essential safety step."
+    explanation: "Essential safety step.",
   },
   {
     id: "PT-Q199",
     question: "A loose cutter may:",
-    options: [
-      "Cut smoothly",
-      "Fly out",
-      "Run cooler",
-      "Improve finish"
-    ],
+    options: ["Cut smoothly", "Fly out", "Run cooler", "Improve finish"],
     correctIndex: 1,
-    explanation: "Serious hazard."
+    explanation: "Serious hazard.",
   },
   {
     id: "PT-Q200",
     question: "Good maintenance helps to:",
-    options: [
-      "Reduce accuracy",
-      "Shorten life",
-      "Improve reliability",
-      "Increase noise"
-    ],
+    options: ["Reduce accuracy", "Shorten life", "Improve reliability", "Increase noise"],
     correctIndex: 2,
-    explanation: "Well-kept tools perform better."
-  }
-],
-[
+    explanation: "Well-kept tools perform better.",
+  },
   {
     id: "cht-001-q1",
     question: "Why is maintaining hand tools important?",
-    options: [
-      "They look better",
-      "They last longer",
-      "They weigh less",
-      "They cut slower"
-    ],
+    options: ["They look better", "They last longer", "They weigh less", "They cut slower"],
     correctIndex: 1,
-    explanation: "Good maintenance extends tool life and improves safety."
+    explanation: "Good maintenance extends tool life and improves safety.",
   },
   {
     id: "cht-001-q2",
     question: "Looking after tools shows:",
-    options: [
-      "Fast working",
-      "Professional behaviour",
-      "Less training",
-      "Higher wages"
-    ],
+    options: ["Fast working", "Professional behaviour", "Less training", "Higher wages"],
     correctIndex: 1,
-    explanation: "Caring for equipment demonstrates professionalism."
+    explanation: "Caring for equipment demonstrates professionalism.",
   },
-
-  
   {
     id: "cht-002-q1",
     question: "Modern cutting edges are designed to:",
-    options: [
-      "Stay sharp longer",
-      "Cost far less",
-      "Need oil daily",
-      "Work only slowly"
-    ],
+    options: ["Stay sharp longer", "Cost far less", "Need oil daily", "Work only slowly"],
     correctIndex: 0,
-    explanation: "Improved materials hold an edge for longer."
+    explanation: "Improved materials hold an edge for longer.",
   },
   {
     id: "cht-002-q2",
     question: "Which tool is usually safer to use?",
-    options: [
-      "A blunt tool",
-      "A damaged tool",
-      "A sharp tool",
-      "A rusty tool"
-    ],
+    options: ["A blunt tool", "A damaged tool", "A sharp tool", "A rusty tool"],
     correctIndex: 2,
-    explanation: "Sharp tools need less force and give better control."
+    explanation: "Sharp tools need less force and give better control.",
   },
-
-  
   {
     id: "cht-003-q1",
     question: "Working safely on site is:",
-    options: [
-      "Optional sometimes",
-      "Only for beginners",
-      "A legal duty",
-      "Up to supervisors"
-    ],
+    options: ["Optional sometimes", "Only for beginners", "A legal duty", "Up to supervisors"],
     correctIndex: 2,
-    explanation: "Safety is a legal responsibility."
+    explanation: "Safety is a legal responsibility.",
   },
   {
     id: "cht-003-q2",
     question: "Being in a hurry means you should:",
-    options: [
-      "Skip safety steps",
-      "Work more carefully",
-      "Ignore PPE",
-      "Take bigger risks"
-    ],
+    options: ["Skip safety steps", "Work more carefully", "Ignore PPE", "Take bigger risks"],
     correctIndex: 1,
-    explanation: "Time pressure never removes safety responsibility."
+    explanation: "Time pressure never removes safety responsibility.",
   },
-
-  
   {
     id: "cht-004-q1",
     question: "Tools should be passed:",
-    options: [
-      "Blade first",
-      "Handle first",
-      "Thrown gently",
-      "Any direction"
-    ],
+    options: ["Blade first", "Handle first", "Thrown gently", "Any direction"],
     correctIndex: 1,
-    explanation: "Passing handle first prevents injury."
+    explanation: "Passing handle first prevents injury.",
   },
   {
     id: "cht-004-q2",
     question: "If a tool will not cut you should:",
-    options: [
-      "Force it harder",
-      "Strike it",
-      "Check the tool",
-      "Twist it"
-    ],
+    options: ["Force it harder", "Strike it", "Check the tool", "Twist it"],
     correctIndex: 2,
-    explanation: "Forcing tools increases accident risk."
+    explanation: "Forcing tools increases accident risk.",
   },
-
-  
   {
     id: "cht-005-q1",
     question: "Hand tools are grouped by their:",
-    options: [
-      "Colour",
-      "Age",
-      "Function",
-      "Price"
-    ],
+    options: ["Colour", "Age", "Function", "Price"],
     correctIndex: 2,
-    explanation: "They are classified by what job they perform."
+    explanation: "They are classified by what job they perform.",
   },
   {
     id: "cht-005-q2",
     question: "Which is a recognised hand tool group?",
-    options: [
-      "Levelling tools",
-      "Painting tools",
-      "Electrical tools",
-      "Cleaning tools"
-    ],
+    options: ["Levelling tools", "Painting tools", "Electrical tools", "Cleaning tools"],
     correctIndex: 0,
-    explanation: "Measuring and levelling are standard categories."
-  }
-],
-[
-  
+    explanation: "Measuring and levelling are standard categories.",
+  },
+
   {
     id: "cht-006-q1",
     question: "Why does the hook on a tape measure move?",
-    options: [
-      "To improve grip",
-      "To avoid rust",
-      "To aid accuracy",
-      "To mark timber"
-    ],
+    options: ["To improve grip", "To avoid rust", "To aid accuracy", "To mark timber"],
     correctIndex: 2,
-    explanation: "The sliding hook compensates for its own thickness."
+    explanation: "The sliding hook compensates for its own thickness.",
   },
   {
     id: "cht-006-q2",
     question: "A damaged tape hook will cause:",
-    options: [
-      "Incorrect readings",
-      "Faster measuring",
-      "Cleaner cuts",
-      "Better grip"
-    ],
+    options: ["Incorrect readings", "Faster measuring", "Cleaner cuts", "Better grip"],
     correctIndex: 0,
-    explanation: "Bent hooks lead to inaccurate measurement."
+    explanation: "Bent hooks lead to inaccurate measurement.",
   },
-
-  
   {
     id: "cht-007-q1",
     question: "A steel rule is best for:",
-    options: [
-      "Long distances",
-      "Short accuracy",
-      "Heavy cutting",
-      "Deep marking"
-    ],
+    options: ["Long distances", "Short accuracy", "Heavy cutting", "Deep marking"],
     correctIndex: 1,
-    explanation: "Steel rules provide precision over short ranges."
+    explanation: "Steel rules provide precision over short ranges.",
   },
   {
     id: "cht-007-q2",
     question: "Besides measuring, a steel rule can:",
-    options: [
-      "Drive nails",
-      "Check moisture",
-      "Mark straight lines",
-      "Cut insulation"
-    ],
+    options: ["Drive nails", "Check moisture", "Mark straight lines", "Cut insulation"],
     correctIndex: 2,
-    explanation: "It is often used as a straight edge."
+    explanation: "It is often used as a straight edge.",
   },
-
-  
   {
     id: "cht-008-q1",
     question: "A scale rule is mainly used with:",
-    options: [
-      "Timber frames",
-      "Power tools",
-      "Site levels",
-      "Drawings"
-    ],
+    options: ["Timber frames", "Power tools", "Site levels", "Drawings"],
     correctIndex: 3,
-    explanation: "They help interpret scaled drawings."
+    explanation: "They help interpret scaled drawings.",
   },
   {
     id: "cht-008-q2",
     question: "Why should drawings include written dimensions?",
-    options: [
-      "Ink fades",
-      "Paper shrinks",
-      "Scales mislead",
-      "Rules break"
-    ],
+    options: ["Ink fades", "Paper shrinks", "Scales mislead", "Rules break"],
     correctIndex: 2,
-    explanation: "Reading from scale alone can cause mistakes."
+    explanation: "Reading from scale alone can cause mistakes.",
   },
-
-  
   {
     id: "cht-009-q1",
     question: "Why are folding rules less common today?",
-    options: [
-      "Too expensive",
-      "Hard to read",
-      "Easily broken",
-      "Bulky to carry"
-    ],
+    options: ["Too expensive", "Hard to read", "Easily broken", "Bulky to carry"],
     correctIndex: 3,
-    explanation: "Modern tapes are easier to carry."
+    explanation: "Modern tapes are easier to carry.",
   },
   {
     id: "cht-009-q2",
     question: "Folding rules were often made from:",
-    options: [
-      "Rubber",
-      "Glass",
-      "Timber",
-      "Aluminium"
-    ],
+    options: ["Rubber", "Glass", "Timber", "Aluminium"],
     correctIndex: 2,
-    explanation: "Traditional types were timber or plastic."
+    explanation: "Traditional types were timber or plastic.",
   },
-
-  
   {
     id: "cht-010-q1",
     question: "Why angle a rule across timber?",
-    options: [
-      "For decoration",
-      "For speed",
-      "For easier division",
-      "For extra grip"
-    ],
+    options: ["For decoration", "For speed", "For easier division", "For extra grip"],
     correctIndex: 2,
-    explanation: "It lets you use numbers that divide evenly."
+    explanation: "It lets you use numbers that divide evenly.",
   },
   {
     id: "cht-010-q2",
     question: "The angled rule method helps avoid:",
-    options: [
-      "Heavy lifting",
-      "Awkward maths",
-      "Extra marking",
-      "Wide cuts"
-    ],
+    options: ["Heavy lifting", "Awkward maths", "Extra marking", "Wide cuts"],
     correctIndex: 1,
-    explanation: "It replaces complex calculation."
-  }
-],
-[
-  
+    explanation: "It replaces complex calculation.",
+  },
+
   {
     id: "cht-011-q1",
     question: "Levels are mainly used to check work is:",
-    options: [
-      "Horizontal or vertical",
-      "Rough or smooth",
-      "Dry or wet",
-      "Light or heavy"
-    ],
+    options: ["Horizontal or vertical", "Rough or smooth", "Dry or wet", "Light or heavy"],
     correctIndex: 0,
-    explanation: "Levels confirm surfaces are flat (level) or upright (plumb)."
+    explanation: "Levels confirm surfaces are flat (level) or upright (plumb).",
   },
   {
     id: "cht-011-q2",
     question: "Some types of level can also help:",
-    options: [
-      "Set other angles",
-      "Cut rebates",
-      "Sharpen saws",
-      "Mark mortices"
-    ],
+    options: ["Set other angles", "Cut rebates", "Sharpen saws", "Mark mortices"],
     correctIndex: 0,
-    explanation: "Certain levels can set or transfer angles as well as level/plumb."
+    explanation: "Certain levels can set or transfer angles as well as level/plumb.",
   },
-
-  
   {
     id: "cht-012-q1",
     question: "A spirit level shows level when the bubble is:",
-    options: [
-      "Touching one end",
-      "Between the marked lines",
-      "Floating at the top",
-      "Hidden under the vial"
-    ],
+    options: ["Touching one end", "Between the marked lines", "Floating at the top", "Hidden under the vial"],
     correctIndex: 1,
-    explanation: "The bubble must sit centred between the vial marks."
+    explanation: "The bubble must sit centred between the vial marks.",
   },
   {
     id: "cht-012-q2",
     question: "Which vial you use depends on whether you are checking:",
-    options: [
-      "Colour and finish",
-      "Weight and balance",
-      "Horizontal or vertical",
-      "Depth and thickness"
-    ],
+    options: ["Colour and finish", "Weight and balance", "Horizontal or vertical", "Depth and thickness"],
     correctIndex: 2,
-    explanation: "Different vials are used for level (horizontal) and plumb (vertical)."
+    explanation: "Different vials are used for level (horizontal) and plumb (vertical).",
   },
-
-  
   {
     id: "cht-013-q1",
     question: "To test a spirit level, you should place it, mark a line, then:",
-    options: [
-      "Oil the vial",
-      "Flip it end for end",
-      "Tap the bubble",
-      "Change the surface"
-    ],
+    options: ["Oil the vial", "Flip it end for end", "Tap the bubble", "Change the surface"],
     correctIndex: 1,
-    explanation: "Turning it end-for-end checks if it reads the same both ways."
+    explanation: "Turning it end-for-end checks if it reads the same both ways.",
   },
   {
     id: "cht-013-q2",
     question: "If the second reading differs from the first, the level is:",
-    options: [
-      "Self-levelling",
-      "Accurate",
-      "Faulty",
-      "Over-sized"
-    ],
+    options: ["Self-levelling", "Accurate", "Faulty", "Over-sized"],
     correctIndex: 2,
-    explanation: "Different results mean it cannot be trusted."
+    explanation: "Different results mean it cannot be trusted.",
   },
-
-  
   {
     id: "cht-014-q1",
     question: "A key feature of many laser levels is that they are:",
-    options: [
-      "Self-levelling",
-      "Bevel up",
-      "Magnetised",
-      "Disposable"
-    ],
+    options: ["Self-levelling", "Bevel up", "Magnetised", "Disposable"],
     correctIndex: 0,
-    explanation: "Many lasers level themselves once positioned correctly."
+    explanation: "Many lasers level themselves once positioned correctly.",
   },
   {
     id: "cht-014-q2",
     question: "A laser level is commonly used for setting out:",
-    options: [
-      "Plane irons",
-      "Partitions",
-      "Saw teeth",
-      "Gauge pins"
-    ],
+    options: ["Plane irons", "Partitions", "Saw teeth", "Gauge pins"],
     correctIndex: 1,
-    explanation: "Lasers are often used for partitions, kitchens, and datum lines."
+    explanation: "Lasers are often used for partitions, kitchens, and datum lines.",
   },
-
-  
   {
     id: "cht-015-q1",
     question: "An inclinometer is mainly used to measure:",
-    options: [
-      "Lengths",
-      "Angles",
-      "Moisture",
-      "Thickness"
-    ],
+    options: ["Lengths", "Angles", "Moisture", "Thickness"],
     correctIndex: 1,
-    explanation: "Unlike a basic level, it reads angles directly."
+    explanation: "Unlike a basic level, it reads angles directly.",
   },
   {
     id: "cht-015-q2",
     question: "Compared with a standard spirit level, an inclinometer is better for:",
-    options: [
-      "Checking colour match",
-      "Repeating exact angles",
-      "Cutting timber faster",
-      "Reducing rust"
-    ],
+    options: ["Checking colour match", "Repeating exact angles", "Cutting timber faster", "Reducing rust"],
     correctIndex: 1,
-    explanation: "It helps set and repeat precise angle measurements."
-  }
-],
-[
-  
+    explanation: "It helps set and repeat precise angle measurements.",
+  },
+
   {
     id: "cht-016-q1",
     question: "A water level shows level by using:",
-    options: [
-      "Laser beams",
-      "A digital screen",
-      "Water in a tube",
-      "Magnetic lines"
-    ],
+    options: ["Laser beams", "A digital screen", "Water in a tube", "Magnetic lines"],
     correctIndex: 2,
-    explanation: "The water height against the graduations indicates the level."
+    explanation: "The water height against the graduations indicates the level.",
   },
   {
     id: "cht-016-q2",
     question: "Water levels are used less today because:",
-    options: [
-      "They are illegal",
-      "They freeze easily",
-      "Modern tools are quicker",
-      "They cannot be moved"
-    ],
+    options: ["They are illegal", "They freeze easily", "Modern tools are quicker", "They cannot be moved"],
     correctIndex: 2,
-    explanation: "Laser and spirit levels are usually faster and simpler."
+    explanation: "Laser and spirit levels are usually faster and simpler.",
   },
-
-  
   {
     id: "cht-017-q1",
     question: "Marking-out tools help ensure:",
-    options: [
-      "Faster lifting",
-      "Accurate layout",
-      "Stronger timber",
-      "Lower costs"
-    ],
+    options: ["Faster lifting", "Accurate layout", "Stronger timber", "Lower costs"],
     correctIndex: 1,
-    explanation: "Accurate marking leads to better fitting work."
+    explanation: "Accurate marking leads to better fitting work.",
   },
   {
     id: "cht-017-q2",
     question: "Skipping proper marking out usually leads to:",
-    options: [
-      "Perfect joints",
-      "Cleaner benches",
-      "Guesswork errors",
-      "Less waste"
-    ],
+    options: ["Perfect joints", "Cleaner benches", "Guesswork errors", "Less waste"],
     correctIndex: 2,
-    explanation: "Without marking, accuracy is lost."
+    explanation: "Without marking, accuracy is lost.",
   },
-
-  
   {
     id: "cht-018-q1",
     question: "Set and tee squares help keep lines:",
-    options: [
-      "Sharp and dark",
-      "Straight and parallel",
-      "Short and wide",
-      "Temporary only"
-    ],
+    options: ["Sharp and dark", "Straight and parallel", "Short and wide", "Temporary only"],
     correctIndex: 1,
-    explanation: "They maintain squareness and parallel accuracy."
+    explanation: "They maintain squareness and parallel accuracy.",
   },
   {
     id: "cht-018-q2",
     question: "If the board used for marking is inaccurate, the result will be:",
-    options: [
-      "Heavier",
-      "Faster",
-      "Also inaccurate",
-      "More polished"
-    ],
+    options: ["Heavier", "Faster", "Also inaccurate", "More polished"],
     correctIndex: 2,
-    explanation: "Errors transfer directly into the work."
+    explanation: "Errors transfer directly into the work.",
   },
-
-  
   {
     id: "cht-019-q1",
     question: "A try square is used to check:",
-    options: [
-      "45 degrees",
-      "90 degrees",
-      "Any angle",
-      "Curves"
-    ],
+    options: ["45 degrees", "90 degrees", "Any angle", "Curves"],
     correctIndex: 1,
-    explanation: "Try squares are fixed at right angles."
+    explanation: "Try squares are fixed at right angles.",
   },
   {
     id: "cht-019-q2",
     question: "Which square is fixed at 45°?",
-    options: [
-      "Mitre square",
-      "Try square",
-      "Roofing square",
-      "Combination square"
-    ],
+    options: ["Mitre square", "Try square", "Roofing square", "Combination square"],
     correctIndex: 0,
-    explanation: "A mitre square is preset for 45°."
+    explanation: "A mitre square is preset for 45°.",
   },
-
-  
   {
     id: "cht-020-q1",
     question: "To check a square, draw a line, flip it, then:",
-    options: [
-      "Sharpen it",
-      "Compare the lines",
-      "Oil the blade",
-      "Change the timber"
-    ],
+    options: ["Sharpen it", "Compare the lines", "Oil the blade", "Change the timber"],
     correctIndex: 1,
-    explanation: "Matching lines show accuracy."
+    explanation: "Matching lines show accuracy.",
   },
   {
     id: "cht-020-q2",
     question: "If the flipped square does not match, it is:",
-    options: [
-      "Perfect",
-      "Heavy duty",
-      "Out of true",
-      "Factory set"
-    ],
+    options: ["Perfect", "Heavy duty", "Out of true", "Factory set"],
     correctIndex: 2,
-    explanation: "It will give incorrect angles."
-  }
-],
-[
-  
+    explanation: "It will give incorrect angles.",
+  },
+
   {
     id: "cht-021-q1",
     question: "A roofing square is mainly used for:",
-    options: [
-      "Painting walls",
-      "Large setting out",
-      "Sharpening tools",
-      "Measuring moisture"
-    ],
+    options: ["Painting walls", "Large setting out", "Sharpening tools", "Measuring moisture"],
     correctIndex: 1,
-    explanation: "It is designed for bigger layout tasks such as roofs and stairs."
+    explanation: "It is designed for bigger layout tasks such as roofs and stairs.",
   },
   {
     id: "cht-021-q2",
     question: "Why might a batten be used with a roofing square?",
-    options: [
-      "To add weight",
-      "To repeat marks",
-      "To clean edges",
-      "To reduce glare"
-    ],
+    options: ["To add weight", "To repeat marks", "To clean edges", "To reduce glare"],
     correctIndex: 1,
-    explanation: "A batten can act as a fence for repeating measurements."
+    explanation: "A batten can act as a fence for repeating measurements.",
   },
-
-  // cht-022 Box Square – Marking Profiled Timber
   {
     id: "cht-022-q1",
     question: "A box square is useful when timber is:",
-    options: [
-      "Wet",
-      "Very long",
-      "Profiled or moulded",
-      "Untreated"
-    ],
+    options: ["Wet", "Very long", "Profiled or moulded", "Untreated"],
     correctIndex: 2,
-    explanation: "It helps wrap square lines around shaped edges."
+    explanation: "It helps wrap square lines around shaped edges.",
   },
   {
     id: "cht-022-q2",
     question: "Standard squares can struggle on mouldings because:",
-    options: [
-      "They are too heavy",
-      "They lack colour",
-      "They cannot register flat",
-      "They are metric"
-    ],
+    options: ["They are too heavy", "They lack colour", "They cannot register flat", "They are metric"],
     correctIndex: 2,
-    explanation: "The uneven surface prevents accurate seating."
+    explanation: "The uneven surface prevents accurate seating.",
   },
-
-  
   {
     id: "cht-023-q1",
     question: "Some box squares are made to:",
-    options: [
-      "Store pencils",
-      "Form set angles",
-      "Replace levels",
-      "Mark circles"
-    ],
+    options: ["Store pencils", "Form set angles", "Replace levels", "Mark circles"],
     correctIndex: 1,
-    explanation: "They can act as templates for angles."
+    explanation: "They can act as templates for angles.",
   },
   {
     id: "cht-023-q2",
     question: "Are all box squares simple 90° tools?",
-    options: [
-      "Yes always",
-      "Only in workshops",
-      "No",
-      "Only for timber"
-    ],
+    options: ["Yes always", "Only in workshops", "No", "Only for timber"],
     correctIndex: 2,
-    explanation: "Some are more complex and specialised."
+    explanation: "Some are more complex and specialised.",
   },
-
-  
   {
     id: "cht-024-q1",
     question: "After setting a sliding bevel you must:",
-    options: [
-      "Loosen it",
-      "Oil it",
-      "Tighten it",
-      "File it"
-    ],
+    options: ["Loosen it", "Oil it", "Tighten it", "File it"],
     correctIndex: 2,
-    explanation: "Locking prevents the angle from moving."
+    explanation: "Locking prevents the angle from moving.",
   },
   {
     id: "cht-024-q2",
     question: "A sliding bevel is mainly for:",
-    options: [
-      "Measuring moisture",
-      "Transferring angles",
-      "Cutting curves",
-      "Checking levels"
-    ],
+    options: ["Measuring moisture", "Transferring angles", "Cutting curves", "Checking levels"],
     correctIndex: 1,
-    explanation: "It copies angles accurately."
+    explanation: "It copies angles accurately.",
   },
-
-
   {
     id: "cht-025-q1",
     question: "A protractor is used to:",
-    options: [
-      "Check flatness",
-      "Measure angles",
-      "Mark thickness",
-      "Hold timber"
-    ],
+    options: ["Check flatness", "Measure angles", "Mark thickness", "Hold timber"],
     correctIndex: 1,
-    explanation: "It reads or sets angle values."
+    explanation: "It reads or sets angle values.",
   },
   {
     id: "cht-025-q2",
     question: "Why can a larger protractor be better?",
-    options: [
-      "It weighs more",
-      "It is cheaper",
-      "Angles are clearer",
-      "It cuts deeper"
-    ],
+    options: ["It weighs more", "It is cheaper", "Angles are clearer", "It cuts deeper"],
     correctIndex: 2,
-    explanation: "Bigger markings improve visibility and accuracy."
-  }
-],
-
-]
+    explanation: "Bigger markings improve visibility and accuracy.",
+  },
+] as const;

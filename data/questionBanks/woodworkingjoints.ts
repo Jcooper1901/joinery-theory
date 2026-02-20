@@ -359,7 +359,6 @@ const rawQuestions = [
   correctIndex: 1,
   explanation: "Clearance reduces binding issues."
 },
-[
 {
   id: "PWJ-JOINTS-Q-531",
   question: "To assemble a glued frame during glue-up you may use a:",
@@ -791,9 +790,7 @@ const rawQuestions = [
   ],
   correctIndex: 1,
   explanation: "Fixings are typically 200–300 mm apart."
-}
-],
-[
+},
 {
   id: "PWJ-JOINTS-Q-567",
   question: "Nails should be punched below the surface to make them ready for:",
@@ -1153,9 +1150,7 @@ const rawQuestions = [
   ],
   correctIndex: 0,
   explanation: "Framing is one of the main groups."
-}
-],
-[
+},
 {
   id: "PWJ-JOINTS-Q-597",
   question: "When gluing a frame, it is square when:",
@@ -1395,10 +1390,8 @@ const rawQuestions = [
   ],
   correctIndex: 1,
   explanation: "It protects the finished edges."
-}
-],
-[
-  {
+},
+{
     id: "PWJ-Q-901",
     question: "A tape measure with a crease should be replaced because it can:",
     options: [
@@ -1757,9 +1750,7 @@ const rawQuestions = [
     ],
     correctIndex: 0,
     explanation: "OSB means oriented strand board."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-931",
     question: "Standard chipboard exposed to moisture will usually:",
@@ -2119,9 +2110,7 @@ const rawQuestions = [
     ],
     correctIndex: 0,
     explanation: "Framing joints are used in windows, doors, and cabinets."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-961",
     question: "A basic butt joint is normally set at:",
@@ -2481,9 +2470,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Material can be removed later, but it cannot be replaced."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-991",
     question: "A sharp tool is safer than a blunt one because it:",
@@ -2723,9 +2710,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Small steps maintain control."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1011",
     question: "For a through mortice, after working from one side you should:",
@@ -2965,9 +2950,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "It must be mixed before use."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1031",
     question: "UF adhesive normally begins to set in about:",
@@ -3207,9 +3190,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "This provides practical access."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1051",
     question: "A rod is mainly used to:",
@@ -3449,9 +3430,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Consistency prevents errors."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1071",
     question: "Joint knowledge is still needed even when using machinery because:",
@@ -3811,9 +3790,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Green timber = unseasoned."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1101",
     question: "Green oak is often used for timber frames because:",
@@ -4053,9 +4030,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Second seasoning helps acclimatise timber to the fitting environment."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1121",
     question: "CLS timber is mainly used for:",
@@ -4295,9 +4270,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Metal detectors help find hidden objects."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1141",
     question: "Employees must report defective tools to:",
@@ -4537,9 +4510,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Oil helps prevent further corrosion."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1161",
     question: "Blunt drill bits will:",
@@ -4779,9 +4750,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "Careful straightening may restore it."
-  }
-],
-[
+  },
   {
     id: "PWJ-Q-1181",
     question: "Transit damage usually occurs when timber is:",
@@ -5021,9 +4990,7 @@ const rawQuestions = [
     ],
     correctIndex: 1,
     explanation: "It suits marine work."
-  }
-],
-
+  },
 ];
 
 export const questions = rawQuestions.flat(Infinity);

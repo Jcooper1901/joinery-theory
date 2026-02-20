@@ -79,10 +79,6 @@ export default function Navbar() {
             Account
           </Link>
         </div>
-
-        <Link className="btn-primary text-sm" href={pathname === "/" ? "/#cta" : "/#cta"}>
-          Start free trial
-        </Link>
       </nav>
     </header>
   );

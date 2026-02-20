@@ -1,8 +1,16 @@
-[
-{
-  id: "FIX-L1-Q-001",
-  question: "What is the main benefit of a security viewer?",
-  options: [
+export type QuizQuestion = {
+  id: string;
+  question: string;
+  options: [string, string, string, string];
+  correctIndex: 0 | 1 | 2 | 3;
+  explanation: string;
+};
+
+export const fixingLevel1Questions: QuizQuestion[] = [
+  {
+    id: "FIX-L1-Q-001",
+    question: "What is the main benefit of a security viewer?",
+    options: [
     "See outside safely",
     "Let fresh air in",
     "Make door stronger",
@@ -238,11 +246,9 @@
   ],
   correctIndex: 1,
   explanation: "They protect drawer and cabinet."
-},
-
-[
-{
-  id: "FIX-L1-Q-021",
+  },
+  {
+    id: "FIX-L1-Q-021",
   question: "What do plinth feet allow you to adjust?",
   options: [
     "Door width",
@@ -480,9 +486,7 @@
   ],
   correctIndex: 1,
   explanation: "Most to the post (frame)."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-041",
   question: "What does a latch lock require that a latch does not?",
@@ -722,9 +726,7 @@
   ],
   correctIndex: 2,
   explanation: "It must sit properly within the mortice."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-061",
   question: "What is used to operate lever handles?",
@@ -964,9 +966,7 @@
   ],
   correctIndex: 2,
   explanation: "This prevents surface damage."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-081",
   question: "Where is the hole drilled for the rack bolt body?",
@@ -1206,9 +1206,7 @@
   ],
   correctIndex: 2,
   explanation: "The area should be left tidy."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-201",
   question: "What is one purpose of a screw cup?",
@@ -1448,9 +1446,7 @@
   ],
   correctIndex: 1,
   explanation: "Incorrect bits tend to slip."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-221",
   question: "A 4.5 mm screw usually matches which driver size?",
@@ -1690,9 +1686,7 @@
   ],
   correctIndex: 0,
   explanation: "A slightly smaller hole can help in porous masonry."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-261",
   question: "Hinges are classed as which type of item?",
@@ -1932,9 +1926,7 @@
   ],
   correctIndex: 1,
   explanation: "They are intended for external work."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-281",
   question: "Collated nails are normally supplied as:",
@@ -2174,251 +2166,7 @@
   ],
   correctIndex: 1,
   explanation: "The curve protects the surface."
-}
-],
-[
-{
-  id: "FIX-L1-Q-281",
-  question: "Collated nails are normally supplied as:",
-  options: [
-    "Loose in a box",
-    "Welded to washers",
-    "Glued into strips",
-    "Tied with wire"
-  ],
-  correctIndex: 2,
-  explanation: "They are held together in strips for nailers."
 },
-{
-  id: "FIX-L1-Q-282",
-  question: "Collated nails are driven using:",
-  options: [
-    "A hammer",
-    "A power fastener",
-    "A screwdriver",
-    "A spanner"
-  ],
-  correctIndex: 1,
-  explanation: "They are designed for nail guns."
-},
-{
-  id: "FIX-L1-Q-283",
-  question: "Heavy, long collated nails are typically used for:",
-  options: [
-    "Picture frames",
-    "Roof members",
-    "Cabinet backs",
-    "Drawer bottoms"
-  ],
-  correctIndex: 1,
-  explanation: "They are suitable for structural work."
-},
-{
-  id: "FIX-L1-Q-284",
-  question: "Light gauge collated brads are common for:",
-  options: [
-    "Concrete",
-    "Roof trusses",
-    "Skirting and architraves",
-    "Steel beams"
-  ],
-  correctIndex: 2,
-  explanation: "Used for lighter finishing work."
-},
-{
-  id: "FIX-L1-Q-285",
-  question: "Masonry nails are made for fixing into:",
-  options: [
-    "Oak",
-    "Plywood",
-    "Brickwork",
-    "Plasterboard"
-  ],
-  correctIndex: 2,
-  explanation: "They are hardened for masonry."
-},
-{
-  id: "FIX-L1-Q-286",
-  question: "PVCu fixing nails are usually:",
-  options: [
-    "Aluminium",
-    "Copper",
-    "Stainless steel",
-    "Brass"
-  ],
-  correctIndex: 2,
-  explanation: "They must resist corrosion."
-},
-{
-  id: "FIX-L1-Q-287",
-  question: "What improves pull resistance on PVCu nails?",
-  options: [
-    "Painted heads",
-    "Annular rings",
-    "Extra glue",
-    "Flat points"
-  ],
-  correctIndex: 1,
-  explanation: "The rings grip once fitted."
-},
-{
-  id: "FIX-L1-Q-288",
-  question: "The 2½ rule helps decide:",
-  options: [
-    "Drill speed",
-    "Nail length",
-    "Head type",
-    "Driver size"
-  ],
-  correctIndex: 1,
-  explanation: "Length should be about 2.5 times thickness."
-},
-{
-  id: "FIX-L1-Q-289",
-  question: "If timber is 20 mm thick, the nail should be about:",
-  options: [
-    "20 mm",
-    "30 mm",
-    "40 mm",
-    "50 mm"
-  ],
-  correctIndex: 3,
-  explanation: "2.5 × 20 mm ≈ 50 mm."
-},
-{
-  id: "FIX-L1-Q-290",
-  question: "Screws differ mainly in:",
-  options: [
-    "Colour only",
-    "Size, material and head shape",
-    "Weight",
-    "Brand"
-  ],
-  correctIndex: 1,
-  explanation: "These determine suitability."
-},
-{
-  id: "FIX-L1-Q-291",
-  question: "Using the correct driver bit is important to avoid:",
-  options: [
-    "Rust",
-    "Noise",
-    "Head damage",
-    "Overheating"
-  ],
-  correctIndex: 2,
-  explanation: "Wrong bits ruin the recess."
-},
-{
-  id: "FIX-L1-Q-292",
-  question: "In metric screw sizing, the first number gives:",
-  options: [
-    "Length",
-    "Diameter",
-    "Head depth",
-    "Thread type"
-  ],
-  correctIndex: 1,
-  explanation: "It is the diameter in mm."
-},
-{
-  id: "FIX-L1-Q-293",
-  question: "A bigger screw number usually means:",
-  options: [
-    "Longer",
-    "Thicker",
-    "Shinier",
-    "Lighter"
-  ],
-  correctIndex: 1,
-  explanation: "Higher number = greater diameter."
-},
-{
-  id: "FIX-L1-Q-294",
-  question: "Screw length measurement does NOT include:",
-  options: [
-    "The thread",
-    "The tip",
-    "A raised head",
-    "The shank"
-  ],
-  correctIndex: 2,
-  explanation: "Head height is excluded."
-},
-{
-  id: "FIX-L1-Q-295",
-  question: "Which is NOT a main part of a screw?",
-  options: [
-    "Head",
-    "Thread",
-    "Pin",
-    "Tip"
-  ],
-  correctIndex: 2,
-  explanation: "Pin is not a screw component."
-},
-{
-  id: "FIX-L1-Q-296",
-  question: "A countersunk screw is designed to finish:",
-  options: [
-    "Proud",
-    "Flush",
-    "Loose",
-    "Rounded"
-  ],
-  correctIndex: 1,
-  explanation: "It sits level or slightly below."
-},
-{
-  id: "FIX-L1-Q-297",
-  question: "Raised or pan heads are meant to:",
-  options: [
-    "Disappear",
-    "Sit proud",
-    "Be hidden",
-    "Split timber"
-  ],
-  correctIndex: 1,
-  explanation: "They remain visible."
-},
-{
-  id: "FIX-L1-Q-298",
-  question: "Washer heads help mainly to:",
-  options: [
-    "Decorate",
-    "Reduce splitting",
-    "Shorten length",
-    "Hide holes"
-  ],
-  correctIndex: 1,
-  explanation: "They spread the load."
-},
-{
-  id: "FIX-L1-Q-299",
-  question: "Round head screws have a top that is:",
-  options: [
-    "Flat",
-    "Domed",
-    "Sharp",
-    "Indented"
-  ],
-  correctIndex: 1,
-  explanation: "They are curved."
-},
-{
-  id: "FIX-L1-Q-300",
-  question: "Bulge heads are useful in plasterboard because they reduce:",
-  options: [
-    "Weight",
-    "Paper tearing",
-    "Noise",
-    "Cost"
-  ],
-  correctIndex: 1,
-  explanation: "The curve protects the surface."
-}
-],
-[
 {
   id: "FIX-L1-Q-301",
   question: "The thread on a screw mainly:",
@@ -2658,9 +2406,7 @@
   ],
   correctIndex: 1,
   explanation: "It makes driving easier."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-321",
   question: "A slotted screw head contains:",
@@ -2900,9 +2646,7 @@
   ],
   correctIndex: 2,
   explanation: "Fit once position is confirmed."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-341",
   question: "After gluing pellets, trimming should happen:",
@@ -3142,9 +2886,7 @@
   ],
   correctIndex: 1,
   explanation: "They grip behind the board."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-341",
   question: "After gluing pellets, trimming should happen:",
@@ -3384,9 +3126,7 @@
   ],
   correctIndex: 1,
   explanation: "They grip behind the board."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-361",
   question: "Nylon expanding anchors are best described as:",
@@ -3626,9 +3366,7 @@
   ],
   correctIndex: 2,
   explanation: "Bond is instant."
-}
-],
-[
+},
 {
   id: "FIX-L1-Q-401",
   question: "Loose pin butt hinges allow the door to:",
@@ -3869,6 +3607,5 @@
   correctIndex: 1,
   explanation: "Standard requirement."
 }
-],
+];
 
-]

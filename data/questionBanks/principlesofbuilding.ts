@@ -1,4 +1,12 @@
-[
+export type QuizQuestion = {
+  id: string;
+  question: string;
+  options: [string, string, string, string];
+  correctIndex: 0 | 1 | 2 | 3;
+  explanation: string;
+};
+
+export const principlesOfBuildingQuestions: QuizQuestion[] = [
   // liquid-screed
   {
     id: "liquid-screed-q1",
@@ -158,7 +166,6 @@
     correctIndex: 0,
     explanation: "Insufficient slope increases the risk of water staying on the roof."
   },
-[
   // bitumen-felt
   {
     id: "bitumen-felt-q1",
@@ -317,9 +324,7 @@
     options: ["Simple to build", "Hard to maintain", "Only for flats", "Only for sheds"],
     correctIndex: 0,
     explanation: "Gable roofs are a straightforward, common roof form."
-  }
-],
-[
+  },
   // purlins
   {
     id: "purlins-q1",
@@ -478,9 +483,7 @@
     options: ["Fascia", "Soffit", "Ridge", "Barge"],
     correctIndex: 0,
     explanation: "The fascia provides the fixing point."
-  }
-],
-[
+  },
   // Load-bearing walls
   {
     id: "load-bearing-walls-q1",
@@ -739,9 +742,7 @@
     ],
     correctIndex: 2,
     explanation: "It blocks damp rising."
-  }
-],
-[
+  },
   // Load-bearing walls
   {
     id: "load-bearing-walls-q3",
@@ -1182,10 +1183,7 @@
     ],
     correctIndex: 1,
     explanation: "They’re used when studs/noggins can’t be reached."
-  }
-],
-[
-  // Breather membrane
+  },
   {
     id: "breather-membrane-q3",
     question: "Which performance requirement best describes a breather membrane in a wall build-up?",
@@ -1495,9 +1493,7 @@
     ],
     correctIndex: 0,
     explanation: "Shine highlights imperfections."
-  }
-],
-[
+  },
   {
     "id": "info-flow-q1",
     "question": "Unclear or delayed information on a project is most likely to result in:",
@@ -1617,9 +1613,7 @@
     ],
     "correctIndex": 2,
     "explanation": "They show how parts look and connect."
-  }
-],
-[
+  },
   {
     "id": "spec-schedule-q1",
     "question": "Specifications are necessary on a project because:",
@@ -1739,9 +1733,7 @@
     ],
     "correctIndex": 2,
     "explanation": "Most stages depend on previous completion."
-  }
-],
-[
+  },
   {
     "id": "delivery-timing-q1",
     "question": "Delivering materials too early can create problems because:",
@@ -1861,9 +1853,7 @@
     ],
     "correctIndex": 2,
     "explanation": "Orders must follow company approval procedures."
-  }
-],
-[
+  },
   {
     "id": "site-diary-q1",
     "question": "The main purpose of keeping a site diary is to:",
@@ -1983,9 +1973,7 @@
     ],
     "correctIndex": 1,
     "explanation": "Dimensions will not match real sizes."
-  }
-],
-[
+  },
   {
     "id": "component-range-q1",
     "question": "A component range drawing is mainly used to:",
@@ -2105,9 +2093,7 @@
     ],
     "correctIndex": 0,
     "explanation": "Underground routes must be understood."
-  }
-],
-[
+  },
   {
     "id": "block-plan-q1",
     "question": "A block plan mainly illustrates:",
@@ -2227,9 +2213,7 @@
     ],
     "correctIndex": 2,
     "explanation": "You may mistake what construction is required."
-  }
-],
-[
+  },
   {
     "id": "window-hinge-q1",
     "question": "Window hinging symbols are used to show:",
@@ -2349,9 +2333,7 @@
     ],
     "correctIndex": 2,
     "explanation": "Visibility is improved in many lighting conditions."
-  }
-],
-[
+  },
   {
     "id": "environment-impact-q1",
     "question": "Construction contributes to climate change mainly because:",
@@ -2471,9 +2453,7 @@
     ],
     "correctIndex": 1,
     "explanation": "Wind is continually available in nature."
-  }
-],
-[
+  },
   {
     "id": "solar-q1",
     "question": "Photovoltaic panels are designed to produce:",
@@ -2593,9 +2573,7 @@
     ],
     "correctIndex": 1,
     "explanation": "Fewer vehicles mean lower pollution."
-  }
-],
-[
+  },
   {
     "id": "ground-source-q1",
     "question": "Ground source systems collect heat using:",
@@ -2716,6 +2694,4 @@
     "correctIndex": 1,
     "explanation": "Fewer trees mean less CO₂ absorption."
   }
-],
-
-]
+];
