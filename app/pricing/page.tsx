@@ -69,7 +69,7 @@ export default function PricingPage() {
                 Upgrade to Pro
               </Link>
               <Link className="btn-secondary" href="/">
-                Keep learning
+                Keep Learning
               </Link>
             </div>
 
