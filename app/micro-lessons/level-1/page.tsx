@@ -1,26 +1,89 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 import Navbar from "@/components/Navbar";
+import { auth, db } from "@/lib/firebase";
+import { isMicroLessonLockedForFreePlan } from "@/lib/planAccess";
 import { level1Lessons, type MicroLesson } from "../lessons.level1";
 
+type ProfileData = {
+  role?: string;
+  pro?: boolean;
+};
+
+function LockIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 10V7.5a4 4 0 1 1 8 0V10"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <rect
+        x="5"
+        y="10"
+        width="14"
+        height="10"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+    </svg>
+  );
+}
+
+const TOPICS = [
+  {
+    name: "Principles of building construction, information and communication",
+    order: 1,
+  },
+  { name: "Carpentry and joinery hand tools", order: 2 },
+  { name: "Power tools", order: 3 },
+  { name: "Produce woodworking joints", order: 4 },
+  { name: "Types of fixings and ironmongery", order: 5 },
+  { name: "Health, safety and welfare in construction", order: 6 },
+];
+
 export default function MicroLessonsLevel1Page() {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [openTopic, setOpenTopic] = useState<string | null>(null);
+  const [isPro, setIsPro] = useState(false);
 
-  const TOPICS = [
-    {
-      name: "Principles of building construction, information and communication",
-      order: 1,
-    },
-    { name: "Carpentry and joinery hand tools", order: 2 },
-    { name: "Power tools", order: 3 },
-    { name: "Produce woodworking joints", order: 4 },
-    { name: "Types of fixings and ironmongery", order: 5 },
-    { name: "Health, safety and welfare in construction", order: 6 },
-  ];
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (nextUser) => {
+      if (!nextUser) {
+        setIsPro(false);
+        return;
+      }
+
+      try {
+        const profileRef = doc(db, "users", nextUser.uid);
+        const snapshot = await getDoc(profileRef);
+        const profile = snapshot.exists() ? (snapshot.data() as ProfileData) : null;
+        setIsPro(Boolean(profile?.pro || profile?.role === "pro"));
+      } catch (error) {
+        console.error("Unable to load plan access", error);
+        setIsPro(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const lessons = useMemo(() => {
     const cleaned = level1Lessons.filter((lesson) => lesson.title.trim());
@@ -35,12 +98,27 @@ export default function MicroLessonsLevel1Page() {
     });
   }, [query]);
 
+  const unlockedLessons = useMemo(() => {
+    if (isPro) {
+      return lessons;
+    }
+
+    return lessons.filter((lesson) => !isMicroLessonLockedForFreePlan("1", lesson.title));
+  }, [isPro, lessons]);
+
   const selectedLesson: MicroLesson | undefined = useMemo(() => {
+    if (!isPro) {
+      if (selectedId) {
+        return unlockedLessons.find((lesson) => lesson.id === selectedId) ?? unlockedLessons[0];
+      }
+      return unlockedLessons[0];
+    }
+
     if (selectedId) {
       return lessons.find((lesson) => lesson.id === selectedId) ?? lessons[0];
     }
     return lessons[0];
-  }, [lessons, selectedId]);
+  }, [isPro, lessons, selectedId, unlockedLessons]);
 
   const grouped = useMemo(() => {
     const baseLessons = level1Lessons.filter((lesson) => lesson.title.trim());
@@ -70,21 +148,36 @@ export default function MicroLessonsLevel1Page() {
     if (!selectedLesson) {
       return -1;
     }
-    return lessons.findIndex((lesson) => lesson.id === selectedLesson.id);
-  }, [lessons, selectedLesson]);
+    return unlockedLessons.findIndex((lesson) => lesson.id === selectedLesson.id);
+  }, [selectedLesson, unlockedLessons]);
   const safeIndex = selectedIndex < 0 ? 0 : selectedIndex;
-  const isFirstLesson = lessons.length === 0 || safeIndex === 0;
-  const isLastLesson = lessons.length === 0 || safeIndex >= lessons.length - 1;
+  const isFirstLesson = unlockedLessons.length === 0 || safeIndex === 0;
+  const isLastLesson = unlockedLessons.length === 0 || safeIndex >= unlockedLessons.length - 1;
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       <Navbar />
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 pb-20 pt-32 sm:px-8">
+        <div>
+          <Link
+            href="/micro-lessons"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[var(--muted)] transition hover:border-white/20 hover:text-white"
+          >
+            <span aria-hidden="true">←</span>
+            <span>Back to levels</span>
+          </Link>
+        </div>
+
         <header className="space-y-2">
           <h1 className="text-4xl font-semibold text-white">Micro Lessons</h1>
           <p className="text-sm text-[var(--muted)] sm:text-base">
             Short revision notes built for Level 1 joinery theory.
           </p>
+          {!isPro ? (
+            <p className="text-xs text-teal-200">
+              Free preview: only 5 Level 1 lessons are unlocked. Everything else is locked for Pro.
+            </p>
+          ) : null}
         </header>
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -98,7 +191,7 @@ export default function MicroLessonsLevel1Page() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search by title or keyword"
-                className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white outline-none transition focus:border-emerald-400/60"
+                className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white outline-none transition focus:border-teal-400/60"
               />
             </div>
           </div>
@@ -110,10 +203,14 @@ export default function MicroLessonsLevel1Page() {
             <select
               value={selectedLesson?.id ?? ""}
               onChange={(event) => setSelectedId(event.target.value)}
-              className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white"
+              className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white [color-scheme:dark]"
             >
-              {lessons.map((lesson) => (
-                <option key={lesson.id} value={lesson.id}>
+              {unlockedLessons.map((lesson) => (
+                <option
+                  key={lesson.id}
+                  value={lesson.id}
+                  className="bg-slate-900 text-white"
+                >
                   {lesson.title}
                 </option>
               ))}
@@ -132,7 +229,7 @@ export default function MicroLessonsLevel1Page() {
                   }
                   className={`flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left text-sm transition ${
                     openTopic === group.topic
-                      ? "border-emerald-400/60 bg-emerald-500/10 text-emerald-200"
+                      ? "border-teal-400/60 bg-teal-500/10 text-teal-200"
                       : "border-white/10 text-white hover:border-white/20"
                   }`}
                   aria-expanded={openTopic === group.topic}
@@ -157,23 +254,41 @@ export default function MicroLessonsLevel1Page() {
                     ) : group.lessons.length === 0 ? (
                       <p className="text-xs text-[var(--muted)]">No matches.</p>
                     ) : (
-                      group.lessons.map((lesson) => (
-                        <button
-                          key={lesson.id}
-                          type="button"
-                          onClick={() => {
-                            setSelectedId(lesson.id);
-                            setOpenTopic(lesson.topic);
-                          }}
-                          className={`w-full rounded-lg border px-3 py-2 text-left text-sm transition ${
-                            selectedLesson?.id === lesson.id
-                              ? "border-emerald-400/60 bg-emerald-500/10 text-emerald-200"
-                              : "border-white/10 text-white hover:border-white/20"
-                          }`}
-                        >
-                          {lesson.title}
-                        </button>
-                      ))
+                      group.lessons.map((lesson) => {
+                        const isLocked = !isPro && isMicroLessonLockedForFreePlan("1", lesson.title);
+
+                        return (
+                          <button
+                            key={lesson.id}
+                            type="button"
+                            onClick={() => {
+                              if (isLocked) {
+                                router.push("/account");
+                                return;
+                              }
+                              setSelectedId(lesson.id);
+                              setOpenTopic(lesson.topic);
+                            }}
+                            className={`w-full rounded-lg border px-3 py-2 text-left text-sm transition ${
+                              isLocked
+                                ? "border-white/10 text-[var(--muted)] hover:border-teal-400/30"
+                                : selectedLesson?.id === lesson.id
+                                  ? "border-teal-400/60 bg-teal-500/10 text-teal-200"
+                                  : "border-white/10 text-white hover:border-white/20"
+                            }`}
+                          >
+                            <span className="flex items-center justify-between gap-3">
+                              <span>{lesson.title}</span>
+                              {isLocked ? (
+                                <span className="inline-flex items-center gap-1 rounded-full border border-teal-400/30 bg-teal-500/10 px-2 py-0.5 text-[10px] font-semibold text-teal-200">
+                                  <LockIcon />
+                                  Locked
+                                </span>
+                              ) : null}
+                            </span>
+                          </button>
+                        );
+                      })
                     )}
                   </div>
                 ) : null}
@@ -245,7 +360,7 @@ export default function MicroLessonsLevel1Page() {
                     type="button"
                     disabled={isFirstLesson}
                     onClick={() => {
-                      const next = lessons[safeIndex - 1];
+                      const next = unlockedLessons[safeIndex - 1];
                       if (!next) {
                         return;
                       }
@@ -262,7 +377,7 @@ export default function MicroLessonsLevel1Page() {
                     type="button"
                     disabled={isLastLesson}
                     onClick={() => {
-                      const next = lessons[safeIndex + 1];
+                      const next = unlockedLessons[safeIndex + 1];
                       if (!next) {
                         return;
                       }
@@ -279,7 +394,7 @@ export default function MicroLessonsLevel1Page() {
               </div>
             ) : (
               <div className="text-sm text-[var(--muted)]">
-                No lesson selected.
+                No unlocked lesson selected.
               </div>
             )}
           </section>

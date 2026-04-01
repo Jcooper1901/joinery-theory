@@ -46,20 +46,20 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
-      <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h1 className="text-2xl font-semibold text-slate-900">Reset password</h1>
-        <p className="mt-1 text-sm text-slate-600">We will email you a reset link.</p>
+    <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-4 text-[var(--foreground)]">
+      <div className="w-full max-w-md rounded-xl border border-white/10 bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] p-6 shadow-sm">
+        <h1 className="text-2xl font-semibold text-white">Reset password</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">We will email you a reset link.</p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label className="text-sm font-medium text-slate-700">Email</label>
+            <label className="text-sm font-medium text-white">Email</label>
             <input
               type="email"
               autoComplete="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+              className="mt-1 w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white outline-none focus:border-teal-300/40 focus:ring-2 focus:ring-teal-500/20"
               placeholder="you@example.com"
             />
           </div>
@@ -69,7 +69,7 @@ export default function ForgotPasswordPage() {
               {error}
             </div>
           ) : success ? (
-            <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
+            <div className="rounded-lg border border-teal-300/40 bg-teal-500/10 px-3 py-2 text-sm text-teal-200">
               {success}
             </div>
           ) : (
@@ -79,14 +79,14 @@ export default function ForgotPasswordPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-lg bg-gradient-to-r from-teal-500 to-sky-500 px-4 py-2 text-sm font-semibold text-[#04111f] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? "Sending..." : "Send reset link"}
           </button>
         </form>
 
-        <div className="mt-6 text-sm text-slate-600">
-          <Link className="text-slate-700 hover:text-slate-900" href="/login">
+        <div className="mt-6 text-sm text-[var(--muted)]">
+          <Link className="text-sky-200 hover:text-white" href="/login">
             Back to sign in
           </Link>
         </div>

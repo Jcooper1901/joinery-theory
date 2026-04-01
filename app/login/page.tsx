@@ -62,8 +62,8 @@ export default function LoginPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-0 h-[420px] w-[420px] rounded-full bg-teal-400/20 blur-[120px]" />
-        <div className="absolute -top-36 right-0 h-[420px] w-[420px] rounded-full bg-blue-500/20 blur-[130px]" />
+        <div className="absolute -top-32 left-0 h-[420px] w-[420px] rounded-full bg-teal-400/25 blur-[120px]" />
+        <div className="absolute -top-36 right-0 h-[420px] w-[420px] rounded-full bg-sky-400/20 blur-[130px]" />
       </div>
 
       <Navbar />
@@ -82,14 +82,14 @@ export default function LoginPage() {
                   autoComplete="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="mt-1 w-full rounded-lg border border-white/10 bg-[rgba(8,12,24,0.7)] px-3 py-2 text-white outline-none placeholder:text-[var(--muted)] focus:border-white/20"
+                  className="mt-1 w-full rounded-lg border border-white/10 bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-3 py-2 text-white outline-none placeholder:text-[var(--muted)] focus:border-teal-300/40"
                   placeholder="you@example.com"
                 />
               </div>
 
               <div>
                 <label className="text-sm font-medium text-white">Password</label>
-                <div className="mt-1 flex items-center rounded-lg border border-white/10 bg-[rgba(8,12,24,0.7)] px-3 py-2 focus-within:border-white/20">
+                <div className="mt-1 flex items-center rounded-lg border border-white/10 bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-3 py-2 focus-within:border-teal-300/40">
                   <input
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"

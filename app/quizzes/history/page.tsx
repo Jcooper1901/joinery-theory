@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 
 /* 
@@ -67,25 +67,22 @@ function formatDuration(ms: number) {
 }
 
 export default function QuizHistoryPage() {
-  const [attempts, setAttempts] = useState<QuizHistoryAttempt[]>([]);
-  const [filterValue, setFilterValue] = useState<FilterValue>("all");
-
-  useEffect(() => {
+  const [attempts, setAttempts] = useState<QuizHistoryAttempt[]>(() => {
     if (typeof window === "undefined") {
-      return;
+      return [];
     }
     const stored = window.localStorage.getItem("jt:quizHistory");
     if (!stored) {
-      setAttempts([]);
-      return;
+      return [];
     }
     try {
       const parsed = JSON.parse(stored) as QuizHistoryAttempt[];
-      setAttempts(Array.isArray(parsed) ? parsed : []);
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
-      setAttempts([]);
+      return [];
     }
-  }, []);
+  });
+  const [filterValue, setFilterValue] = useState<FilterValue>("all");
 
   const getAttemptMeta = (attempt: QuizHistoryAttempt) => {
     const questionCount =
@@ -346,7 +343,7 @@ export default function QuizHistoryPage() {
                               ? "text-[var(--muted)]"
                               : meta.isFailed
                                 ? "text-red-200"
-                                : "text-emerald-300"
+                                : "text-teal-200"
                           }`}
                         >
                           {statusLabel}

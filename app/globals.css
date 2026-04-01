@@ -1,18 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05070d;
-  --surface: #0b1324;
-  --primary: #10b981;
+  --background: #0b1220;
+  --surface: #152238;
+  --primary: #14b8a6;
   --secondary: #60a5fa;
-  --foreground: #e6e9ef;
-  --muted: #9aa4b2;
+  --foreground: #f8fbff;
+  --muted: #b7c4d6;
   --radius-16: 16px;
   --radius-24: 24px;
-  --shadow-soft: 0 18px 50px rgba(7, 11, 20, 0.55), 0 2px 8px rgba(7, 11, 20, 0.35);
-  --shadow-large: 0 30px 90px rgba(5, 9, 18, 0.7);
-  --shadow-glow: 0 0 0 1px rgba(16, 185, 129, 0.25), 0 16px 45px rgba(16, 185, 129, 0.3);
-  --glow: radial-gradient(1000px 500px at 50% -10%, rgba(84, 123, 255, 0.18), transparent 60%);
+  --shadow-soft: 0 18px 50px rgba(5, 10, 20, 0.38), 0 2px 8px rgba(5, 10, 20, 0.24);
+  --shadow-large: 0 30px 90px rgba(3, 8, 18, 0.52);
+  --shadow-glow: 0 0 0 1px rgba(20, 184, 166, 0.28), 0 16px 45px rgba(20, 184, 166, 0.24);
+  --glow:
+    radial-gradient(900px 520px at 14% -10%, rgba(20, 184, 166, 0.2), transparent 60%),
+    radial-gradient(760px 420px at 84% 0%, rgba(96, 165, 250, 0.16), transparent 58%),
+    radial-gradient(700px 420px at 50% 100%, rgba(59, 130, 246, 0.12), transparent 62%),
+    linear-gradient(180deg, #10192b 0%, #0b1220 48%, #09101c 100%);
   --noise: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGZpbHRlciBpZD0ibiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWx0ZXI9InVybCgjbikiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=");
 }
 
@@ -32,12 +36,12 @@ html {
 }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.35);
+  background: rgba(20, 184, 166, 0.35);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid rgba(16, 185, 129, 0.6);
+  outline: 2px solid rgba(20, 184, 166, 0.65);
   outline-offset: 2px;
 }
 
@@ -74,7 +78,7 @@ body {
 
 @layer components {
   .glass-card {
-    background-color: color-mix(in srgb, var(--surface) 85%, transparent);
+    background-color: color-mix(in srgb, var(--surface) 88%, transparent);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-24);
     box-shadow: var(--shadow-soft);
@@ -85,8 +89,8 @@ body {
     border: 1px solid transparent;
     border-radius: inherit;
     background:
-      linear-gradient(rgba(11, 19, 36, 0.9), rgba(11, 19, 36, 0.9)) padding-box,
-      linear-gradient(135deg, rgba(16, 185, 129, 0.45), rgba(96, 165, 250, 0.45), rgba(45, 212, 191, 0.35)) border-box;
+      linear-gradient(rgba(21, 34, 56, 0.92), rgba(21, 34, 56, 0.92)) padding-box,
+      linear-gradient(135deg, rgba(20, 184, 166, 0.52), rgba(34, 211, 238, 0.46), rgba(96, 165, 250, 0.42)) border-box;
     transition: box-shadow 200ms ease, transform 200ms ease;
   }
 
@@ -101,16 +105,16 @@ body {
     gap: 0.5rem;
     padding: 0.65rem 1.1rem;
     border-radius: var(--radius-16);
-    border: 1px solid rgba(16, 185, 129, 0.55);
-    background: linear-gradient(135deg, #10b981, #14b8a6);
-    color: #041014;
+    border: 1px solid rgba(20, 184, 166, 0.6);
+    background: linear-gradient(135deg, #14b8a6, #60a5fa);
+    color: #04111f;
     font-weight: 600;
     box-shadow: var(--shadow-glow);
     transition: box-shadow 200ms ease, transform 200ms ease, filter 200ms ease;
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.35), 0 18px 55px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.35), 0 18px 55px rgba(20, 184, 166, 0.3);
     filter: brightness(1.05);
     transform: translateY(-1px);
   }
@@ -122,17 +126,17 @@ body {
     gap: 0.5rem;
     padding: 0.65rem 1.1rem;
     border-radius: var(--radius-16);
-    border: 1px solid rgba(96, 165, 250, 0.4);
-    background: rgba(96, 165, 250, 0.16);
-    color: var(--foreground);
+    border: 1px solid rgba(20, 184, 166, 0.6);
+    background: linear-gradient(135deg, #14b8a6, #60a5fa);
+    color: #04111f;
     font-weight: 600;
-    box-shadow: var(--shadow-soft);
-    transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+    box-shadow: var(--shadow-glow);
+    transition: box-shadow 200ms ease, transform 200ms ease, filter 200ms ease;
   }
 
   .btn-secondary:hover {
-    border-color: rgba(96, 165, 250, 0.7);
-    background: rgba(96, 165, 250, 0.22);
+    box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.35), 0 18px 55px rgba(20, 184, 166, 0.3);
+    filter: brightness(1.05);
     transform: translateY(-1px);
   }
 }

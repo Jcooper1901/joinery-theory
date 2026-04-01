@@ -64,8 +64,8 @@ export default function RegisterPage() {
     <div className="relative min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
       {/* ambient glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-0 h-[420px] w-[420px] rounded-full bg-teal-400/20 blur-[120px]" />
-        <div className="absolute -top-36 right-0 h-[420px] w-[420px] rounded-full bg-blue-500/20 blur-[130px]" />
+        <div className="absolute -top-32 left-0 h-[420px] w-[420px] rounded-full bg-teal-400/25 blur-[120px]" />
+        <div className="absolute -top-36 right-0 h-[420px] w-[420px] rounded-full bg-sky-400/20 blur-[130px]" />
       </div>
 
       <Navbar />
@@ -96,7 +96,7 @@ export default function RegisterPage() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="you@example.com"
-                    className="mt-1 w-full rounded-lg border border-white/10 bg-[rgba(8,12,24,0.7)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-white/20 focus:ring-2 focus:ring-emerald-500/20"
+                    className="mt-1 w-full rounded-lg border border-white/10 bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-teal-300/40 focus:ring-2 focus:ring-teal-500/20"
                   />
                 </div>
 
@@ -110,7 +110,7 @@ export default function RegisterPage() {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="••••••••"
-                    className="mt-1 w-full rounded-lg border border-white/10 bg-[rgba(8,12,24,0.7)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-white/20 focus:ring-2 focus:ring-emerald-500/20"
+                    className="mt-1 w-full rounded-lg border border-white/10 bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-teal-300/40 focus:ring-2 focus:ring-teal-500/20"
                   />
                 </div>
 
@@ -124,7 +124,7 @@ export default function RegisterPage() {
                     value={confirmPassword}
                     onChange={(event) => setConfirmPassword(event.target.value)}
                     placeholder="••••••••"
-                    className="mt-1 w-full rounded-lg border border-white/10 bg-[rgba(8,12,24,0.7)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-white/20 focus:ring-2 focus:ring-emerald-500/20"
+                    className="mt-1 w-full rounded-lg border border-white/10 bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-3 py-2 text-white outline-none placeholder:text-white/30 transition focus:border-teal-300/40 focus:ring-2 focus:ring-teal-500/20"
                   />
                 </div>
 
