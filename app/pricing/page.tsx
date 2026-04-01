@@ -160,7 +160,7 @@ export default function PricingPage() {
                   </h2>
                 </div>
                 <span className="rounded-full border border-teal-300/30 bg-teal-400/10 px-3 py-1 text-sm font-semibold text-teal-200">
-                  Recommended
+                  recommended
                 </span>
               </div>
               <ul className="mt-6 space-y-3 text-sm text-[var(--muted)]">
