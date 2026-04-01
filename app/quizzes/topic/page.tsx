@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { auth, db } from "@/lib/firebase";
@@ -799,7 +799,21 @@ function Confetti({ show }: { show: boolean }) {
 }
 
 export default function TopicQuizPage() {
-  return <TopicQuizPageContent />;
+  return (
+    <Suspense fallback={<TopicQuizPageFallback />}>
+      <TopicQuizPageContent />
+    </Suspense>
+  );
+}
+
+function TopicQuizPageFallback() {
+  return (
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <div className="mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center px-5 sm:px-8">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/10 border-t-white/70" />
+      </div>
+    </div>
+  );
 }
 
 function TopicQuizPageContent() {

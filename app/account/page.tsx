@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import CheckoutButton from "@/components/CheckoutButton";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
 import { getIdToken, onAuthStateChanged, signOut, User } from "firebase/auth";
@@ -20,6 +20,25 @@ type ProfileData = {
 };
 
 export default function AccountPage() {
+  return (
+    <Suspense fallback={<AccountPageFallback />}>
+      <AccountPageContent />
+    </Suspense>
+  );
+}
+
+function AccountPageFallback() {
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
+      <Navbar />
+      <main className="relative mx-auto flex w-full max-w-6xl items-center justify-center px-5 pb-20 pt-32 sm:px-8">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/10 border-t-white/70" />
+      </main>
+    </div>
+  );
+}
+
+function AccountPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [user, setUser] = useState<User | null>(null);
