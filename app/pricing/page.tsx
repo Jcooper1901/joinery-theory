@@ -102,7 +102,7 @@ export default function PricingPage() {
                   </h2>
                 </div>
                 <span className="rounded-full border border-teal-300/30 bg-teal-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-teal-200">
-                  Best Value
+                  best value
                 </span>
               </div>
 
