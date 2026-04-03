@@ -54,7 +54,11 @@ export default function Navbar() {
         className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-8"
         aria-label="Primary"
       >
-        <Link className="text-lg font-semibold tracking-tight text-white" href="/">
+        <Link
+          className="text-lg font-semibold tracking-tight text-white"
+          href="/"
+          aria-label="JoineryTheory home"
+        >
           JoineryTheory
         </Link>
 
