@@ -3,6 +3,31 @@ import admin from "firebase-admin";
 
 let app: admin.app.App | null = null;
 
+type ServiceAccountLike = {
+  project_id?: string;
+  client_email?: string;
+  private_key?: string;
+};
+
+function parseServiceAccountKey(rawKey: string) {
+  const trimmed = rawKey.trim();
+
+  if (trimmed.startsWith("{")) {
+    const parsed = JSON.parse(trimmed) as ServiceAccountLike;
+    return {
+      projectId: parsed.project_id,
+      clientEmail: parsed.client_email,
+      privateKey: parsed.private_key,
+    };
+  }
+
+  return {
+    projectId: undefined,
+    clientEmail: undefined,
+    privateKey: rawKey,
+  };
+}
+
 export function getAdminApp(): admin.app.App {
   if (app) return app;
   if (admin.apps.length) {
@@ -20,15 +45,28 @@ export function getAdminApp(): admin.app.App {
     );
   }
 
-  const privateKey = rawKey.includes("\\n") ? rawKey.replace(/\\n/g, "\n") : rawKey;
+  const parsedKey = parseServiceAccountKey(rawKey);
+  const resolvedProjectId = parsedKey.projectId ?? projectId;
+  const resolvedClientEmail = parsedKey.clientEmail ?? clientEmail;
+  const resolvedPrivateKey = parsedKey.privateKey;
+
+  if (!resolvedProjectId || !resolvedClientEmail || !resolvedPrivateKey) {
+    throw new Error(
+      "Invalid FIREBASE_SERVICE_ACCOUNT_KEY. Provide either the raw private key or the full service account JSON."
+    );
+  }
+
+  const privateKey = resolvedPrivateKey.includes("\\n")
+    ? resolvedPrivateKey.replace(/\\n/g, "\n")
+    : resolvedPrivateKey;
 
   app = admin.initializeApp({
     credential: admin.credential.cert({
-      projectId,
-      clientEmail,
+      projectId: resolvedProjectId,
+      clientEmail: resolvedClientEmail,
       privateKey,
     }),
-    projectId,
+    projectId: resolvedProjectId,
   });
 
   return app;

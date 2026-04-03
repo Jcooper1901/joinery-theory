@@ -58,7 +58,13 @@ export async function GET(request: Request) {
     return NextResponse.json({ users });
   } catch (error) {
     console.error("Admin user email list error:", error);
-    return NextResponse.json({ error: "Could not load user emails." }, { status: 500 });
+    const message =
+      error instanceof Error &&
+      (error.message.includes("FIREBASE_SERVICE_ACCOUNT_KEY") ||
+        error.message.includes("service account"))
+        ? "Server Firebase Admin credentials are invalid or incomplete."
+        : "Could not load user emails.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
@@ -98,6 +104,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, updated });
   } catch (error) {
     console.error("Admin user email backfill error:", error);
-    return NextResponse.json({ error: "Could not backfill user emails." }, { status: 500 });
+    const message =
+      error instanceof Error &&
+      (error.message.includes("FIREBASE_SERVICE_ACCOUNT_KEY") ||
+        error.message.includes("service account"))
+        ? "Server Firebase Admin credentials are invalid or incomplete."
+        : "Could not backfill user emails.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

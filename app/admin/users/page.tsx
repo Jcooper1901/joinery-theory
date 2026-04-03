@@ -185,6 +185,10 @@ export default function AdminUsersPage() {
 
             {loading ? (
               <p className="text-sm text-[var(--muted)]">Loading users...</p>
+            ) : error ? (
+              <p className="text-sm text-[var(--muted)]">
+                Fix the server error above, then refresh this page.
+              </p>
             ) : users.length === 0 ? (
               <p className="text-sm text-[var(--muted)]">No users found.</p>
             ) : (
