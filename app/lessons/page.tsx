@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
@@ -204,12 +205,22 @@ function LessonsPageContent() {
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       <Navbar />
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
-        <h1 className="text-4xl font-semibold text-white">Joinery Questions</h1>
-        <p className="mt-2 text-sm text-[var(--muted)]">
-          {isPro
-            ? "Choose your level to explore topics."
-            : "Free plan users can access the first 2 subtopics on each level. Upgrade to Pro to unlock the rest."}
-        </p>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-semibold text-white">Joinery Questions</h1>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              {isPro
+                ? "Choose your level to explore topics."
+                : "Free plan users can access the first 2 subtopics on each level. Upgrade to Pro to unlock the rest."}
+            </p>
+          </div>
+          <Link
+            href="/quizzes/history"
+            className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[var(--muted)] transition hover:border-white/20 hover:text-white"
+          >
+            History
+          </Link>
+        </div>
         {!isPro && planReady && freeTopicsForCurrentLevel.length > 0 ? (
           <p className="mt-2 text-xs text-teal-200">
             Free on this level: {freeTopicsForCurrentLevel.join(" and ")}.

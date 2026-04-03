@@ -210,9 +210,14 @@ export default function QuizHistoryPage() {
               {visibleAttempts.length} shown / {attempts.length} total
             </p>
           </div>
-          <button type="button" onClick={handleClear} className="btn-secondary">
-            Clear history
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link href="/lessons" className="btn-secondary">
+              Back to questions
+            </Link>
+            <button type="button" onClick={handleClear} className="btn-secondary">
+              Clear history
+            </button>
+          </div>
         </div>
 
         <div className="glass-card rounded-[var(--radius-16)] border border-white/10 p-4">
@@ -299,7 +304,11 @@ export default function QuizHistoryPage() {
                       meta.dateMs || attempt.completedAt
                     ).toLocaleString();
                     const percentLabel = Math.round(meta.percent);
-                    const href = `/quizzes/topic?mode=history&attemptId=${attempt.id}`;
+                    const href = `/quizzes/topic?mode=history&attemptId=${attempt.id}&level=${encodeURIComponent(
+                      String(attempt.level ?? "")
+                    )}&topic=${encodeURIComponent(
+                      String(attempt.topic ?? "")
+                    )}&count=${encodeURIComponent(String(meta.questionCount))}`;
                     const statusLabel = meta.isAbandoned
                       ? "Abandoned"
                       : meta.isFailed

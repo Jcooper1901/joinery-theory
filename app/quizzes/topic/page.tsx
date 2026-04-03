@@ -71,9 +71,11 @@ type HistoryAttemptLike = {
   flagged?: Record<string, boolean>;
   score?: number;
   percent?: number;
+  passMark?: number;
   durationMs?: number;
   elapsedMs?: number;
   completedAt?: number;
+  status?: string;
   data?: {
     questions?: unknown[];
     answers?: Record<string, number>;
@@ -279,6 +281,19 @@ type QuizHistoryAttempt = {
   answers: Record<string, number>;
   flaggedIds: string[];
   flagged?: Record<string, boolean> | string[];
+};
+
+type HistoryAttemptMeta = {
+  id: string;
+  level: string;
+  topic: string;
+  count: number;
+  score: number;
+  percent: number;
+  passMark: number;
+  durationMs: number;
+  completedAt: number | null;
+  status: "pass" | "fail" | "abandoned";
 };
 
 type ProfileData = {
@@ -952,6 +967,8 @@ function TopicQuizPageContent() {
   const [historyError, setHistoryError] = useState<string | null>(null);
   const [flaggedIds, setFlaggedIds] = useState<string[]>([]);
   const [historyPercent, setHistoryPercent] = useState<number | null>(null);
+  const [historyAttemptMeta, setHistoryAttemptMeta] =
+    useState<HistoryAttemptMeta | null>(null);
   const [resumeData, setResumeData] = useState<QuizSavedState | null>(null);
   const [resumeStatus, setResumeStatus] = useState<
     "checking" | "prompt" | "ready"
@@ -1258,6 +1275,7 @@ function TopicQuizPageContent() {
       setHistoryError(null);
       setFlaggedIds([]);
       setHistoryPercent(null);
+      setHistoryAttemptMeta(null);
       return;
     }
     if (typeof window === "undefined") {
@@ -1349,12 +1367,45 @@ function TopicQuizPageContent() {
             ? Math.round((computedScore / questions.length) * 100)
             : 0)
       );
+      const passMarkValue = Number(attempt?.passMark ?? 75);
+      const isAbandoned =
+        attempt?.status === "abandoned" ||
+        (typeof (attempt as { passFail?: string }).passFail === "string" &&
+          (attempt as { passFail?: string }).passFail === "Abandoned") ||
+        (attempt as { abandoned?: boolean }).abandoned === true ||
+        (attempt as { completed?: boolean }).completed === false;
+      const status: HistoryAttemptMeta["status"] = isAbandoned
+        ? "abandoned"
+        : percent >= passMarkValue
+          ? "pass"
+          : "fail";
       setQuestions(questions);
       setAnswers(answers as Record<string, number>);
       setFlaggedIds(flaggedIds as string[]);
       setElapsedMs(Number(attempt?.durationMs ?? attempt?.elapsedMs ?? 0));
       setScore(Number(computedScore ?? 0));
       setHistoryPercent(Number(percent));
+      setHistoryAttemptMeta({
+        id: String(
+          attempt?.id ??
+            attempt?.attemptId ??
+            attempt?.attempt_id ??
+            attempt?.sessionId ??
+            attemptId
+        ),
+        level: String((attempt as { level?: string }).level ?? level),
+        topic: String((attempt as { topic?: string }).topic ?? topic),
+        count: Number(
+          (attempt as { count?: number }).count ?? questions.length ?? 0
+        ),
+        score: Number(computedScore ?? 0),
+        percent,
+        passMark: passMarkValue,
+        durationMs: Number(attempt?.durationMs ?? attempt?.elapsedMs ?? 0),
+        completedAt:
+          typeof attempt?.completedAt === "number" ? attempt.completedAt : null,
+        status,
+      });
       setCurrentIndex(0);
       setView("result");
       setIsRunning(false);
@@ -1367,10 +1418,11 @@ function TopicQuizPageContent() {
       setQuestions([]);
       setAnswers({});
       setFlaggedIds([]);
+      setHistoryAttemptMeta(null);
     } finally {
       setHistoryLoading(false);
     }
-  }, [attemptId, isHistory]);
+  }, [attemptId, isHistory, level, topic]);
 
   useEffect(() => {
     if (!isSupportedTopic) {
@@ -1752,7 +1804,12 @@ function TopicQuizPageContent() {
   const scorePercent = totalQuestions
     ? ((score ?? 0) / totalQuestions) * 100
     : 0;
-  const passed = scorePercent >= passMark;
+  const effectivePassMark = isHistory
+    ? historyAttemptMeta?.passMark ?? passMark
+    : passMark;
+  const passed = isHistory
+    ? historyAttemptMeta?.status === "pass"
+    : scorePercent >= effectivePassMark;
 
   if (resolvedView === "review") {
     const flaggedList = questions
@@ -1956,14 +2013,43 @@ function TopicQuizPageContent() {
               </span>
             ) : null}
             {isHistory ? (
+              <div className="mt-4">
+                <Link href="/quizzes/history" className="btn-secondary">
+                  Back to history
+                </Link>
+              </div>
+            ) : null}
+            {isHistory ? (
               <div className="mt-4 grid gap-2 text-sm text-[var(--muted)] sm:grid-cols-2">
                 <p>
-                  Score: {score ?? 0} / {questions.length} (
-                  {historyPercent ?? Math.round(scorePercent)}%)
+                  Score: {historyAttemptMeta?.score ?? score ?? 0} /{" "}
+                  {historyAttemptMeta?.count ?? questions.length} (
+                  {historyAttemptMeta?.percent ??
+                    historyPercent ??
+                    Math.round(scorePercent)}
+                  %)
                 </p>
-                <p>Status: {passed ? "Pass" : "Fail"}</p>
-                <p>Time: {formatElapsed(elapsedMs)}</p>
-                <p>Pass mark: {passMark}%</p>
+                <p>
+                  Status:{" "}
+                  {historyAttemptMeta?.status === "abandoned"
+                    ? "Abandoned"
+                    : historyAttemptMeta?.status === "pass"
+                      ? "Pass"
+                      : "Fail"}
+                </p>
+                <p>Time: {formatElapsed(historyAttemptMeta?.durationMs ?? elapsedMs)}</p>
+                <p>Pass mark: {effectivePassMark}%</p>
+                <p>Level: {historyAttemptMeta?.level || level || "Unknown"}</p>
+                <p>Topic: {historyAttemptMeta?.topic || topic || "Unknown"}</p>
+                <p>
+                  Questions shown: {historyAttemptMeta?.count ?? questions.length}
+                </p>
+                <p>
+                  Completed:{" "}
+                  {historyAttemptMeta?.completedAt
+                    ? new Date(historyAttemptMeta.completedAt).toLocaleString()
+                    : "Unknown"}
+                </p>
               </div>
             ) : null}
             <div className="relative">
@@ -1973,7 +2059,8 @@ function TopicQuizPageContent() {
               </h1>
             </div>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              You scored {score ?? 0} out of {questions.length}
+              You scored {historyAttemptMeta?.score ?? score ?? 0} out of{" "}
+              {historyAttemptMeta?.count ?? questions.length}
             </p>
             {!isHistory ? (
               <p className="mt-1 text-xs text-[var(--muted)]">Pass mark: 75%</p>
