@@ -2,23 +2,12 @@
 
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { useState, useEffect } from "react";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { useState } from "react";
+import { usePlanAccess } from "@/lib/use-plan-access";
 
 export default function Home() {
   const [selected, setSelected] = useState<number | null>(null);
-  const [user, setUser] = useState<User | null>(null);
-  const [authReady, setAuthReady] = useState(false);
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      setAuthReady(true);
-    });
-
-    return () => unsub();
-  }, []);
+  const { isSignedIn, isPro } = usePlanAccess();
   const options = [
     "Length and width",
     "Width and depth",
@@ -91,14 +80,13 @@ export default function Home() {
             sharpen weak areas before assessment day.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              className="btn-primary"
-              href={authReady && user ? "/account" : "/login"}
-            >
-              Upgrade to pro
-            </Link>
+            {!isPro ? (
+              <Link className="btn-primary" href={isSignedIn ? "/account" : "/login"}>
+                Upgrade to pro
+              </Link>
+            ) : null}
             <Link className="btn-secondary" href="/micro-lessons">
-              Start learning
+              {isPro ? "Continue learning" : "Start learning"}
             </Link>
           </div>
           <div className="flex flex-wrap gap-2 text-xs font-medium text-[var(--muted)]">

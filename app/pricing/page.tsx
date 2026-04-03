@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { usePlanAccess } from "@/lib/use-plan-access";
 
 const freePlanFeatures = [
   "Access to 2 subtopics on each level",
@@ -39,6 +42,8 @@ const comparisonRows = [
 ];
 
 export default function PricingPage() {
+  const { isSignedIn, isPro } = usePlanAccess();
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
       <div className="pointer-events-none absolute inset-0">
@@ -65,9 +70,11 @@ export default function PricingPage() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link className="btn-primary" href="/account">
-                Upgrade to Pro
-              </Link>
+              {!isPro ? (
+                <Link className="btn-primary" href={isSignedIn ? "/account" : "/login"}>
+                  Upgrade to Pro
+                </Link>
+              ) : null}
               <Link className="btn-secondary" href="/">
                 Keep Learning
               </Link>
@@ -193,9 +200,11 @@ export default function PricingPage() {
                 Free gets you started. Pro helps you finish strong.
               </h2>
             </div>
-            <Link className="btn-primary" href="/account">
-              Upgrade to Pro
-            </Link>
+            {!isPro ? (
+              <Link className="btn-primary" href={isSignedIn ? "/account" : "/login"}>
+                Upgrade to Pro
+              </Link>
+            ) : null}
           </div>
 
           <div className="mt-6 overflow-x-auto">
