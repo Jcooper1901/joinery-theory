@@ -34,6 +34,8 @@ export async function POST(request: Request) {
     if (!customerId) {
       await userRef.set(
         {
+          email,
+          emailLower: email?.toLowerCase() ?? null,
           role: "free",
           pro: false,
           planStatus: "none",
@@ -58,6 +60,8 @@ export async function POST(request: Request) {
     if (!best) {
       await userRef.set(
         {
+          email,
+          emailLower: email?.toLowerCase() ?? null,
           role: "free",
           pro: false,
           planStatus: "none",
@@ -81,6 +85,8 @@ export async function POST(request: Request) {
 
     await userRef.set(
       {
+        email,
+        emailLower: email?.toLowerCase() ?? null,
         role: pro ? "pro" : "free",
         pro,
         planStatus: best.status,

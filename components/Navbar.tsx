@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { usePathname, useRouter } from "next/navigation";
+import { ADMIN_EMAIL } from "@/lib/admin";
 
 export default function Navbar() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isAdmin = user?.email?.toLowerCase() === "cooperjackp@gmail.com";
+  const isAdmin = user?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
@@ -128,6 +129,12 @@ export default function Navbar() {
             </Link>
           ) : null}
 
+          {authReady && user && isAdmin ? (
+            <Link className="transition-colors hover:text-white" href="/admin/users">
+              Users
+            </Link>
+          ) : null}
+
           <Link className="transition-colors hover:text-white" href="/account">
             Account
           </Link>
@@ -200,6 +207,15 @@ export default function Navbar() {
                 href="/admin/reported-questions"
               >
                 Reports
+              </Link>
+            ) : null}
+
+            {authReady && user && isAdmin ? (
+              <Link
+                className="rounded-xl px-3 py-2 transition-colors hover:bg-white/5 hover:text-white"
+                href="/admin/users"
+              >
+                Users
               </Link>
             ) : null}
 

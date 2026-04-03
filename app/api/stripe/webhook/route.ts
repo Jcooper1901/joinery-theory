@@ -76,8 +76,13 @@ export async function POST(request: Request) {
           subscriptionId,
         });
         if (userRef) {
+          const sessionEmail =
+            toStringOrNull(session.customer_details?.email) ??
+            toStringOrNull(session.customer_email);
           await userRef.set(
             {
+              email: sessionEmail,
+              emailLower: sessionEmail?.toLowerCase() ?? null,
               role: "pro",
               pro: true,
               planStatus: "active",
@@ -109,8 +114,11 @@ export async function POST(request: Request) {
           subscriptionId,
         });
         if (userRef) {
+          const invoiceEmail = toStringOrNull(invoice.customer_email);
           await userRef.set(
             {
+              email: invoiceEmail,
+              emailLower: invoiceEmail?.toLowerCase() ?? null,
               role: "pro",
               pro: true,
               planStatus: "active",

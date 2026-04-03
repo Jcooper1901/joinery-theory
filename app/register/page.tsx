@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
 import Navbar from "@/components/Navbar";
 
 const mapAuthError = (code: string) => {
@@ -50,7 +51,20 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const credential = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(
+        doc(db, "users", credential.user.uid),
+        {
+          email: credential.user.email ?? email,
+          emailLower: (credential.user.email ?? email).toLowerCase(),
+          emailVerified: credential.user.emailVerified,
+          role: "free",
+          pro: false,
+          planStatus: "none",
+          createdAtMs: Date.now(),
+        },
+        { merge: true }
+      );
       router.replace("/");
     } catch (err) {
       const code = (err as { code?: string })?.code ?? "";

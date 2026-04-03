@@ -6,6 +6,7 @@ import { onAuthStateChanged, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDocs, writeBatch } from "firebase/firestore";
 import Navbar from "@/components/Navbar";
 import { auth, db } from "@/lib/firebase";
+import { ADMIN_EMAIL } from "@/lib/admin";
 
 type QuestionReport = {
   id: string;
@@ -21,8 +22,6 @@ type QuestionReport = {
   lastReportedByEmail: string | null;
   lastReportedByUid: string | null;
 };
-
-const ADMIN_EMAIL = "cooperjackp@gmail.com";
 
 export default function ReportedQuestionsAdminPage() {
   const [user, setUser] = useState<User | null>(null);
